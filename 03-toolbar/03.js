@@ -6,23 +6,24 @@
  * 
  * TASK:
  *   Continuing from the result of Tut 02, add 'Alignment' and 'Image on the Right/Left' buttons in the toolbar.
+ * 
+ * REFERENCE:
+ * - https://github.com/WordPress/gutenberg-examples
+ * - https://gist.github.com/rmorse/1300421889ec7fbb9217899e61ab703d
  */
-( function( blocks, blockEditor, element, components ) { 'use strict';
+( function( blocks, editor, element, components ) { 'use strict';
 
-var el = element.createElement;
-var RichText = blockEditor.RichText;
-var MediaUpload = blockEditor.MediaUpload;
+const el = element.createElement;
+// Add toolbar class
+const { RichText, MediaUpload, BlockControls, AlignmentToolbar } = editor;
 
-// Toolbar class
-var BlockControls = blockEditor.BlockControls;
-var AlignmentToolbar = blockEditor.AlignmentToolbar;
 
 blocks.registerBlockType( 'wpbt/tut-03', {
   title: '03 - Custom Toolbar',
   icon: 'book',
   category: 'layout',
 
-  // Define how to extract values from saved content
+  //
   attributes: {
     title: { type: 'array', source: 'children', selector: 'h2' },
     mediaID: { type: 'number' },
@@ -35,14 +36,14 @@ blocks.registerBlockType( 'wpbt/tut-03', {
     imagePosition: { type: 'string', default: 'right' }
   },
 
-  // This value will be used for Preview when selecting block
+  //
   example: {
     attributes: {
       title: 'Chocolate Chip Cookies',
       mediaURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2ChocolateChipCookies.jpg/320px-2ChocolateChipCookies.jpg',
       ingredients: [ 'flour', 'sugar', 'chocolate' ],
       steps: [	'Mix', 'Bake', 'Enjoy' ],
-
+      
       alignment: 'left',
       imagePosition: 'right',
     },
@@ -51,58 +52,6 @@ blocks.registerBlockType( 'wpbt/tut-03', {
   //
   edit: function( props ) {
     var atts = props.attributes;
-
-    // Put the long content in variable so it's tidier during 'return'.
-    var content = el( 'div',
-      {
-        className: props.className + ' image-' + atts.imagePosition, // add image position class
-        style: { textAlign: atts.alignment }, // add 'style' attribute and set 'text-align' property
-      },
-
-      el( RichText, {
-        tagName: 'h2',
-        inline: true,
-        placeholder: 'Write Recipe title…',
-        value: atts.title,
-        onChange: ( newTitle ) => {
-          props.setAttributes( { title: newTitle } );
-        },
-      } ),
-      
-      el(	'div', { className: 'recipe-image' },
-        el( MediaUpload, {
-          onSelect: _onSelectImage,
-          allowedTypes: 'image',
-          value: atts.mediaID,
-          render: _renderImage
-        } )
-      ),
-
-      el( 'h3', {}, 'Ingredients' ),
-      
-      el( RichText, {
-        tagName: 'ul',
-        multiline: 'li',
-        placeholder: 'Write a list of ingredients…',
-        className: 'ingredients',
-        value: atts.ingredients,
-        onChange: ( newIngredients ) => {
-          props.setAttributes( { ingredients: newIngredients } );
-        },
-      } ),
-      
-      el( 'h3', {}, 'Steps' ),
-      
-      el( RichText, {
-        tagName: 'div',
-        inline: false,
-        placeholder: 'Write instructions…',
-        value: atts.steps,
-        onChange: ( newSteps ) => {
-          props.setAttributes( { steps: newSteps } );
-        },
-      } )
-    );
     
     return [
       // If BlockControls is returned, it will be added to the toolbar
@@ -133,7 +82,32 @@ blocks.registerBlockType( 'wpbt/tut-03', {
           onChange: _onChangeAlignment,
         } )
       ),
-      content
+
+      el( 'div',
+        {
+          className: props.className + ' image-' + atts.imagePosition, // add image position class
+          style: { textAlign: atts.alignment }, // add 'style' attribute and set 'text-align' property
+        },
+
+        // Minimized, read Tut 02 if you want expanded version
+        el( RichText, { tagName: 'h2',  inline: true, placeholder: 'Write Recipe title…', value: atts.title,
+          onChange: ( newTitle ) => { props.setAttributes( { title: newTitle } ); }, }
+        ),
+        el(	'div', { className: 'recipe-image' },
+          el( MediaUpload, {  onSelect: _onSelectImage, allowedTypes: 'image', value: atts.mediaID, render: _renderImage } )
+        ),
+        el( 'h3', {}, 'Ingredients' ),
+        el( RichText, {
+          tagName: 'ul', multiline: 'li', placeholder: 'Write a list of ingredients…', className: 'ingredients', value: atts.ingredients,
+          onChange: ( newIngredients ) => { props.setAttributes( { ingredients: newIngredients } ); }, }
+        ),
+        el( 'h3', {}, 'Steps' ),
+        el( RichText, {
+          tagName: 'div', inline: false, placeholder: 'Write instructions…', value: atts.steps,
+          onChange: ( newSteps ) => { props.setAttributes( { steps: newSteps } ); }, }
+        )
+      
+      )
     ];
 
     /////

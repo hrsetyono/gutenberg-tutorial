@@ -8,6 +8,8 @@ Features:
 
 - All codes use ES5 syntax. No need for those fancy Babel and friends.
 
+- All important parts are commented in the code.
+
 > If you have any question, let me know in [Issues](https://github.com/hrsetyono/wp-blocks-tutorial/issues)
 
 ### Credit

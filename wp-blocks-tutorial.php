@@ -17,3 +17,5 @@ if( !defined( 'WPINC' ) ) { die; } // exit if accessed directly
 require_once '01-single-field/index.php';
 require_once '02-multiple-fields/index.php';
 require_once '03-toolbar/index.php';
+require_once '04-sidebar/index.php';
+require_once '04b-more-sidebar/index.php';

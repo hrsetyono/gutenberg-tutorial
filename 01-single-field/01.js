@@ -4,53 +4,61 @@
  * - Learn the basic of creating custom block.
  * - Introduces the concept of attributes.
  * - Learn about RichText field
+ * 
+ * TASK:
+ *   Create a block containing a single input field
+ * 
+ * REFERENCE:
+ * - https://github.com/WordPress/gutenberg-examples
+ * - https://developer.wordpress.org/block-editor/developers/block-api/block-attributes/
  */
-( function( blocks, blockEditor, element ) { 'use strict';
-  var el = element.createElement;
-  var RichText = blockEditor.RichText;
+( function( blocks, editor, element ) { 'use strict';
 
-  blocks.registerBlockType( 'wpbt/tut-01', {
-    title: '01 - Single Field',
-    icon: 'book',
-    category: 'layout',
+const el = element.createElement;
+const { RichText } = editor;
 
-    // Define how to extract values from saved content
+blocks.registerBlockType( 'wpbt/tut-01', {
+  title: '01 - Single Field',
+  icon: 'book',
+  category: 'layout',
+
+  // Define how to extract values from saved content
+  attributes: {
+    // RichText value is array, and we want to get every children under <p>
+    content: { type: 'array', source: 'children', selector: 'p' },
+  },
+
+  // This value will be used for Preview when selecting block
+  example: {
     attributes: {
-      // RichText value is array, and we want to get every children under <p>
-      content: { type: 'array', source: 'children', selector: 'p' },
+      content: 'Hello world',
     },
+  },
 
-    // This value will be used for Preview when selecting block
-    example: {
-      attributes: {
-        content: 'Hello world',
-      },
-    },
+  // Define how to render the content in Editor
+  edit: ( props ) => {
+    var content = props.attributes.content;
 
-    // Define how to render the content in Editor
-    edit: ( props ) => {
-      var content = props.attributes.content;
+    return el( RichText, {
+      tagName: 'p',
+      className: props.className,
+      onChange: _onChangeContent,
+      value: content,
+    } );
 
-      return el( RichText, {
-        tagName: 'p',
-        className: props.className,
-        onChange: _onChangeContent,
-        value: content,
-      } );
+    //
+    function _onChangeContent( newContent ) {
+      props.setAttributes( { content: newContent } );
+    }
+  },
 
-      //
-      function _onChangeContent( newContent ) {
-        props.setAttributes( { content: newContent } );
-      }
-    },
+  // Define what to save in Database
+  save: ( props ) => {
+    return el( RichText.Content, {
+      tagName: 'p',
+      value: props.attributes.content,
+    } );
+  },
 
-    // Define what to save in Database
-    save: ( props ) => {
-      return el( RichText.Content, {
-        tagName: 'p',
-        value: props.attributes.content,
-      } );
-    },
-
-  } );
+} );
 } )( window.wp.blocks, window.wp.blockEditor, window.wp.element );

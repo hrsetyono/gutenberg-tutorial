@@ -6,12 +6,15 @@
  * 
  * TASK:
  *   Make a block for Cooking Recipe with 4 fields: Title, Image, Ingredients, and Steps.
+ * 
+ * REFERENCE:
+ * - https://github.com/WordPress/gutenberg-examples
  */
-( function( blocks, blockEditor, element, components ) { 'use strict';
+( function( blocks, editor, element, components ) { 'use strict';
 
-var el = element.createElement;
-var RichText = blockEditor.RichText;
-var MediaUpload = blockEditor.MediaUpload;
+const el = element.createElement;
+const { RichText, MediaUpload } = editor;
+
 
 blocks.registerBlockType( 'wpbt/tut-02', {
   title: '02 - Multiple Fields',
@@ -121,7 +124,7 @@ blocks.registerBlockType( 'wpbt/tut-02', {
   save: function( props ) {
     var atts = props.attributes;
 
-    return el( 'div',	{ className: props.className },
+    return el( 'div',	{},
       // Recipe Title
       el( RichText.Content, {
         tagName: 'h2',
