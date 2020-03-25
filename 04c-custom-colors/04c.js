@@ -1,16 +1,10 @@
 /*
-  Tutorial 04b - All Inspector Controls
-  
-  - Learn how to add more controls in Inspector.
+  Tutorial 04c - Custom Color Pickers
+ 
+  - Learn how to add custom color picker in Inspector
   
   TASK:
-    Continuing from Tutorial 01, add these field type in Inspector:
-  
-    - Textarea    - Radio
-    - Checkbox    - Select
-    - Range       - Custom Color Palette
-  
-    No need to be applied in any part of edit() or save(), just showcase them.
+    Create a RichText and 2 custom Color Pickers, 1 for Text Color and 1 for Background Color
   
   REFERENCE:
   - https://rudrastyh.com/gutenberg/inspector-controls.html

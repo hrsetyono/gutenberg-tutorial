@@ -8,7 +8,7 @@
   
     - Textarea    - Radio
     - Checkbox    - Select
-    - Range       - Custom Color Palette
+    - Range
   
     No need to be applied in any part of edit() or save(), just showcase them.
   
