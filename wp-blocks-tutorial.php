@@ -19,3 +19,6 @@ require_once '02-multiple-fields/index.php';
 require_once '03-toolbar/index.php';
 require_once '04-sidebar/index.php';
 require_once '04b-more-sidebar/index.php';
+require_once '05-nested-blocks/index.php';
+require_once '06-dynamic-block/index.php';
+require_once '06b-dynamic-block-pt2/index.php';

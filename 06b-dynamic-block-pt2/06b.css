@@ -3,7 +3,7 @@
  * editor-specific styles using the same selectors will take precedence.
  */
 
- .wp-block-wpbt-tut-03 .recipe-image {
+ .wp-block-wpbt-tut-06b .recipe-image {
 	background: #f1f1f1;
 	float: right;
 	width: 50%;
@@ -11,37 +11,31 @@
 	text-align: center;
 }
 
-/* Image Position */
-.wp-block-wpbt-tut-03.image-left .recipe-image {
-	float: left;
-	margin-right: 1.5rem;
-}
-
-.wp-block-wpbt-tut-03 .recipe-image button {
+.wp-block-wpbt-tut-06b .recipe-image button {
 	margin-top: 30px;
 }
 
-.wp-block-wpbt-tut-03 .recipe-image .button--transparent {
+.wp-block-wpbt-tut-06b .recipe-image .button--transparent {
 	margin: 0;
 	padding: 0;
 	display: block;
 }
 
-.wp-block-wpbt-tut-03 .recipe-image img {
+.wp-block-wpbt-tut-06b .recipe-image img {
 	display: block;
 	z-index: 1;
 	position: relative;
 }
 
-.wp-block-wpbt-tut-03 h2 {
+.wp-block-wpbt-tut-06b h2 {
 	font-size: 1.5em;
 }
 
-.wp-block-wpbt-tut-03 ul {
+.wp-block-wpbt-tut-06b ul {
 	padding-left: 2.5em !important;
 }
 
-.wp-block-wpbt-tut-03:after { 
+.wp-block-wpbt-tut-06b:after { 
 	content:""; 
 	clear:both; 
 	display: table; 

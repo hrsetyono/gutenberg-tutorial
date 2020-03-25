@@ -1,15 +1,15 @@
-/**
- * Tutorial 02 - Multiple Fields
- * 
- * - Learn how to create multiple fields.
- * - Learn about MediaUpload field.
- * 
- * TASK:
- *   Make a block for Cooking Recipe with 4 fields: Title, Image, Ingredients, and Steps.
- * 
- * REFERENCE:
- * - https://github.com/WordPress/gutenberg-examples
- */
+/*
+  Tutorial 02 - Multiple Fields
+  
+  - Learn how to create multiple fields.
+  - Learn about MediaUpload field.
+  
+  TASK:
+    Make a block for Cooking Recipe with 4 fields: Title, Image, Ingredients, and Steps.
+  
+  REFERENCE:
+  - https://github.com/WordPress/gutenberg-examples
+*/
 ( function( blocks, editor, element, components ) { 'use strict';
 
 const el = element.createElement;
@@ -51,8 +51,8 @@ blocks.registerBlockType( 'wpbt/tut-02', {
         inline: true,
         placeholder: 'Write Recipe title…',
         value: atts.title,
-        onChange: ( newTitle ) => {
-          props.setAttributes( { title: newTitle } );
+        onChange: ( value ) => {
+          props.setAttributes( { title: value } );
         },
       } ),
       
@@ -76,8 +76,8 @@ blocks.registerBlockType( 'wpbt/tut-02', {
         placeholder: 'Write a list of ingredients…',
         className: 'ingredients',
         value: atts.ingredients,
-        onChange: ( newIngredients ) => {
-          props.setAttributes( { ingredients: newIngredients } );
+        onChange: ( value ) => {
+          props.setAttributes( { ingredients: value } );
         },
       } ),
       
@@ -90,8 +90,8 @@ blocks.registerBlockType( 'wpbt/tut-02', {
         inline: false,
         placeholder: 'Write instructions…',
         value: atts.steps,
-        onChange: ( newSteps ) => {
-          props.setAttributes( { steps: newSteps } );
+        onChange: ( value ) => {
+          props.setAttributes( { steps: value } );
         },
       } )
     );
