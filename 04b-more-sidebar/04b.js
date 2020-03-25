@@ -44,6 +44,10 @@ blocks.registerBlockType( 'wpbt/tut-04b', {
     } },
     radio: { type: 'string', default: 'radio1' },
     toggle: { type: 'boolean', default: true },
+
+    customColor: { type: 'string', default: '#2196f3' },
+    customBgColor: { type: 'string', default: '#c8e6c9' },
+    
   },
 
   example: {},
@@ -54,8 +58,9 @@ blocks.registerBlockType( 'wpbt/tut-04b', {
 
     return [
       el( InspectorControls, {},
-        // Panel 1
-        el( PanelBody, { title: 'Panel 1', initialOpen: true },
+
+        ///// PANEL 1
+        el( PanelBody, { title: 'Panel 1', initialOpen: false },
 
           // Text Field
           el( TextControl, {
@@ -102,8 +107,8 @@ blocks.registerBlockType( 'wpbt/tut-04b', {
 
         ),
 
-        // Panel 2
-        el( PanelBody, { title: 'Panel 2', initialOpen: true },
+        ///// PANEL 2
+        el( PanelBody, { title: 'Panel 2', initialOpen: false },
           // Single Checkboxes
           el( CheckboxControl, {
             label: 'CheckboxControl',
@@ -156,12 +161,53 @@ blocks.registerBlockType( 'wpbt/tut-04b', {
             },
           } ),
 
-        ),
+        ), // panel2
+
+        ///// PANEL COLOR
+        el( PanelColorSettings, {
+          title: 'Panel Color',
+          initialOpen: true,
+          colorSettings: [
+            {
+              label: 'Custom Color',
+              value: atts.customColor,
+              disableCustomColors: true,
+              colors: [
+                { name: 'Red', slug: 'red', color: '#f44336' },
+                { name: 'Green', slug: 'green', color: '#4caf50' },
+                { name: 'Blue', slug: 'blue', color: '#2196f3' },
+                { name: 'Yellow', slug: 'yellow', color: '#ffeb3b' },
+              ],
+              onChange: (value) => {
+                props.setAttributes( { customColor: value ? value : 'none' } )
+              }
+            },
+            {
+              label: 'Custom Background Color',
+              value: atts.customBgColor,
+              disableCustomColors: true,
+              colors: [
+                { name: 'Red Light', slug: 'red-light', color: '#ffcdd2' },
+                { name: 'Green Light', slug: 'green-light', color: '#c8e6c9' },
+                { name: 'Blue Light', slug: 'blue-light', color: '#bbdefb' },
+                { name: 'Yellow Light', slug: 'yellow-light', color: '#fff9c4' },
+              ],
+              onChange: (value) => {
+                props.setAttributes( { customBgColor: value ? value : 'none' } )
+              }
+            },
+          ],
+        } ),
+
       ),
 
-      el( RichText, { tagName: 'p', className: props.className, value: atts.content,
-        onChange: ( value ) => { props.setAttributes( { content: value } );} }
-      )
+      el( RichText, {
+        tagName: 'p',
+        className: props.className,
+        value: atts.content,
+        style: { '--bgColor': atts.customBgColor, '--textColor': atts.customColor2 },
+        onChange: ( value ) => { props.setAttributes( { content: value } ); }
+      } )
     ];
   },
 
