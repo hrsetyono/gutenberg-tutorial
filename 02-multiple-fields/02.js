@@ -42,7 +42,7 @@ blocks.registerBlockType( 'wpbt/tut-02', {
 
   // Define how to render the content in Editor
   edit: function( props ) {
-    var atts = props.attributes;
+    let atts = props.attributes;
     
     return el( 'div',	{ className: props.className }, // Outer div wrapper
       // Recipe title as H2
@@ -122,7 +122,7 @@ blocks.registerBlockType( 'wpbt/tut-02', {
 
   // Define what to save in Database
   save: function( props ) {
-    var atts = props.attributes;
+    let atts = props.attributes;
 
     return el( 'div',	{},
       // Recipe Title
@@ -157,3 +157,9 @@ blocks.registerBlockType( 'wpbt/tut-02', {
 } );
 
 } )( window.wp.blocks, window.wp.blockEditor, window.wp.element, window.wp.components );
+
+/*
+  That's all folks!
+  
+  If you spot a mistake or want to request a topic, let me know in https://github.com/hrsetyono/wp-blocks-tutorial/issues
+*/

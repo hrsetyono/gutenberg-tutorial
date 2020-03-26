@@ -24,8 +24,6 @@ blocks.registerBlockType( 'wpbt/tut-05', {
 
   //
   edit: ( props ) => {
-    var content = props.attributes.content;
-
     return el( 'div', { className: props.className },
       el( InnerBlocks, {
         // Only allow these blocks to be its children, remove this param to allow all blocks

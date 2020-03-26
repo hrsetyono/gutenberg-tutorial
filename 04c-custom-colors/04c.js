@@ -32,7 +32,7 @@ blocks.registerBlockType( 'wpbt/tut-04c', {
 
   //
   edit: ( props ) => {
-    var atts = props.attributes;
+    let atts = props.attributes;
 
     return [
       el( InspectorControls, {},
@@ -74,24 +74,39 @@ blocks.registerBlockType( 'wpbt/tut-04c', {
 
       ),
 
-      el( RichText, {
-        tagName: 'p',
-        className: props.className,
-        value: atts.content,
-        style: { '--bgColor': atts.customBgColor, '--textColor': atts.customColor },
-        onChange: ( value ) => { props.setAttributes( { content: value } ); }
-      } )
+      // There's a bug where RichText can't have CSS Var applied
+      //   So we need this div wrapper to apply the CSS Var
+      el( 'div', { style: { '--bgColor': atts.customBgColor, '--textColor': atts.customColor } },
+        el( RichText, {
+          tagName: 'p',
+          className: props.className,
+          value: atts.content,
+          onChange: ( value ) => {
+            props.setAttributes( { content: value } );
+          }
+        } )
+      ),
     ];
   },
 
   //
   save: ( props ) => {
-    return el( RichText.Content, {
-      tagName: 'p',
-      style: { '--bgColor': atts.customBgColor, '--textColor': atts.customColor },
-      value: props.attributes.content
-    } );
+    let atts = props.attributes;
+
+    return el( 'div', { style: { '--bgColor': atts.customBgColor, '--textColor': atts.customColor } },
+      el( RichText.Content, {
+        tagName: 'p',
+        value: atts.content
+      } ),
+    );
   },
 
 } );
 } )( window.wp.blocks, window.wp.blockEditor, window.wp.element, window.wp.components );
+
+
+/*
+  That's all folks!
+  
+  If you spot a mistake or want to request a topic, let me know in https://github.com/hrsetyono/wp-blocks-tutorial/issues
+*/

@@ -30,7 +30,7 @@ blocks.registerBlockType( 'wpbt/tut-06', {
   },
 
   edit: function( props ) {
-    var atts = props.attributes;
+    let atts = props.attributes;
     
     // Get list of categories if doesn't exists yet
     if( !atts.categories ) {
@@ -53,36 +53,42 @@ blocks.registerBlockType( 'wpbt/tut-06', {
 
 
     return el( 'div', {},
+    
       // Category select
-      el( 'select',
-        {
-          value: atts.selectedCategory,
+      el( 'div', {}, 
+        el( 'label', {}, 'Post Category' ),
+        el( 'select',
+          {
+            value: atts.selectedCategory,
+            onChange: (e) => {
+              props.setAttributes( { selectedCategory: e.target.value } );
+            }
+          },
+          [
+            el( 'option', { value: '' }, 'Select a Category' ),
+            ...atts.categories.map( category => {
+              return (
+                el( 'option', { value: category.id, key: category.id }, category.name )
+              );
+            } )
+          ]
+        ),
+      ),
+
+      // Input for postsPerPage
+      el( 'div', {},
+        el( 'label', {}, 'Posts per Page' ),
+        el( 'input', {
+          value: atts.postsPerPage,
+          placeholder: 'Posts per Page',
+          type: 'number',
+          
           onChange: (e) => {
-            props.setAttributes( { selectedCategory: e.target.value } );
+            props.setAttributes( { postsPerPage: e.target.value } );
           }
-        },
-        [
-          el( 'option', { value: '' }, 'Select a Category' ),
-          ...atts.categories.map( category => {
-            return (
-              el( 'option', { value: category.id, key: category.id }, category.name )
-            );
-          } )
-        ]
+        }),
       ),
       
-      // Input for postsPerPage
-      el( 'input', {
-        value: atts.postsPerPage,
-        placeholder: 'Posts per Page',
-        type: 'number',
-        
-        // onBlur is triggered when the field lose focus (even if value doesn't change)
-        //   Use onChange if you want it to trigger while you type
-        onChange: (e) => {
-          props.setAttributes( { postsPerPage: e.target.value } );
-        }
-      }),
     );
   },
 
@@ -95,3 +101,10 @@ blocks.registerBlockType( 'wpbt/tut-06', {
 } );
 
 } )( window.wp.blocks, window.wp.blockEditor, window.wp.element, window.wp.components );
+
+
+/*
+  That's all folks!
+  
+  If you spot a mistake or want to request a topic, let me know in https://github.com/hrsetyono/wp-blocks-tutorial/issues
+*/

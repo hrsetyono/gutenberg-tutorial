@@ -36,7 +36,7 @@ blocks.registerBlockType( 'wpbt/tut-06b', {
 
   //
   edit: function( props ) {
-    var atts = props.attributes;
+    let atts = props.attributes;
     
     return el( 'div',	{ className: props.className },
 
@@ -113,3 +113,10 @@ blocks.registerBlockType( 'wpbt/tut-06b', {
 } );
 
 } )( window.wp.blocks, window.wp.blockEditor, window.wp.element, window.wp.components );
+
+
+/*
+  That's all folks!
+  
+  If you spot a mistake or want to request a topic, let me know in https://github.com/hrsetyono/wp-blocks-tutorial/issues
+*/

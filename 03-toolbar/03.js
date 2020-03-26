@@ -54,7 +54,7 @@ blocks.registerBlockType( 'wpbt/tut-03', {
 
   //
   edit: function( props ) {
-    var atts = props.attributes;
+    let atts = props.attributes;
     
     return [
       // If BlockControls is returned, it will be added to the toolbar
@@ -152,7 +152,7 @@ blocks.registerBlockType( 'wpbt/tut-03', {
 
   //
   save: function( props ) {
-    var atts = props.attributes;
+    let atts = props.attributes;
 
     return el( 'div',
       // Append the class with position and alignment
@@ -172,3 +172,9 @@ blocks.registerBlockType( 'wpbt/tut-03', {
 } );
 
 } )( window.wp.blocks, window.wp.blockEditor, window.wp.element, window.wp.components );
+
+/*
+  That's all folks!
+  
+  If you spot a mistake or want to request a topic, let me know in https://github.com/hrsetyono/wp-blocks-tutorial/issues
+*/

@@ -53,7 +53,7 @@ blocks.registerBlockType( 'wpbt/tut-04', {
 
   //
   edit: function( props ) {
-    var atts = props.attributes;
+    let atts = props.attributes;
     
     return [
       // If InspectorControls is returned, it will be added to the sidebar
@@ -147,7 +147,7 @@ blocks.registerBlockType( 'wpbt/tut-04', {
 
   //
   save: function( props ) {
-    var atts = props.attributes;
+    let atts = props.attributes;
     return el( 'div', { style: { '--titleColor': atts.titleColor } },
 
       el( RichText.Content, { tagName: 'h2', value: atts.title } ),
@@ -169,3 +169,10 @@ blocks.registerBlockType( 'wpbt/tut-04', {
 } );
 
 } )( window.wp.blocks, window.wp.blockEditor, window.wp.element, window.wp.components );
+
+
+/*
+  That's all folks!
+  
+  If you spot a mistake or want to request a topic, let me know in https://github.com/hrsetyono/wp-blocks-tutorial/issues
+*/

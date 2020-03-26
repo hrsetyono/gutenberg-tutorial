@@ -37,7 +37,7 @@ blocks.registerBlockType( 'wpbt/tut-01', {
 
   // Define how to render the content in Editor
   edit: ( props ) => {
-    var atts = props.attributes;
+    let atts = props.attributes;
 
     return el( RichText, {
       tagName: 'p',
@@ -52,7 +52,7 @@ blocks.registerBlockType( 'wpbt/tut-01', {
 
   // Define what to save in Database
   save: ( props ) => {
-    var atts = props.attributes;
+    let atts = props.attributes;
 
     return el( RichText.Content, {
       tagName: 'p',
@@ -62,3 +62,10 @@ blocks.registerBlockType( 'wpbt/tut-01', {
 
 } );
 } )( window.wp.blocks, window.wp.blockEditor, window.wp.element, window.wp.components );
+
+
+/*
+  That's all folks!
+  
+  If you spot a mistake or want to request a topic, let me know in https://github.com/hrsetyono/wp-blocks-tutorial/issues
+*/

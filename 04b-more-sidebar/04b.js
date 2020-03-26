@@ -50,7 +50,7 @@ blocks.registerBlockType( 'wpbt/tut-04b', {
 
   //
   edit: ( props ) => {
-    var atts = props.attributes;
+    let atts = props.attributes;
 
     return [
       el( InspectorControls, {},
@@ -125,7 +125,7 @@ blocks.registerBlockType( 'wpbt/tut-04b', {
               checked: atts.checkboxes[ label ],
               onChange: ( value ) => {
                 // Copy the object using Object.assign so it doesn't get tracked by React
-                var copyCheckboxes = Object.assign( {}, atts.checkboxes );
+                let copyCheckboxes = Object.assign( {}, atts.checkboxes );
                 copyCheckboxes[ label ] = value;
 
                 props.setAttributes( { checkboxes: copyCheckboxes } );
@@ -177,3 +177,10 @@ blocks.registerBlockType( 'wpbt/tut-04b', {
 
 } );
 } )( window.wp.blocks, window.wp.blockEditor, window.wp.element, window.wp.components );
+
+
+/*
+  That's all folks!
+  
+  If you spot a mistake or want to request a topic, let me know in https://github.com/hrsetyono/wp-blocks-tutorial/issues
+*/
