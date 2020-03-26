@@ -12,6 +12,8 @@
   4. Destructuring Assigment
   5. Spread Operator
   6. Array Map
+  7. React Element
+  8. React Attributes & Listener
 */
 
 
@@ -26,11 +28,12 @@
     // your code here
   } )();
 
-// You can pass in variables and rename them
+// You can pass in object and rename them
 
-  (function( renamedVar1, renamedVar2, renamedVar3 ) {
-    // ...
-  } )( var1, var2, var3 );
+  (function( be ) {
+    // We renamed the object 'wp.blockEditor' into 'be'
+    // Now you can simply call 'be' to call its methods.
+  } )( wp.blockEditor );
 
 
 /////
@@ -46,14 +49,14 @@
  * 
  * This puts 'var' in a weird spot since it doesn't mean anything.
  * 
- * By using 'let' or 'const', it makes it easier to know whether you should or shouldn't change the value.
+ * By using 'let' or 'const', you know whether you should or shouldn't change the value.
  */
 
   let myLet = 'this value will change';
 
   const MY_CONST = 'this value will not and cannot change'; // usually use all caps
 
-  var myVar = 'who knows what will happen with this';
+  var myVar = 'who knows what will happen to this';
 
 
 ///////
@@ -62,6 +65,7 @@
  * 2. USE STRICT
  * 
  * By adding this simple string, browser will treat your script differently.
+ * 
  * There is no longer silent JS error, you will get proper error message shown in Developer Console.
  */
 
@@ -90,7 +94,7 @@
     return num1 + num2;
   };
 
-// If your function only has 1 line which is 'return', you can remove the curly brace and return:
+// If your function only has 1 line which is 'return', you can remove the curly brace and the 'return':
 
   sumNumber = ( num1, num2 ) => num1 + num2;
 
@@ -100,7 +104,7 @@
 
 // But I prefer to always write it complete like this:
 
-  timesTwo = ( num ) => { return num * 2; }
+  const timesTwo = ( num ) => { return num * 2; }
 
 
 /////
@@ -113,22 +117,23 @@
 
 // Let's say we have the object below:
 
-  let myObject = {
-    item1: 'value 1',
-    item2: 'value 2',
-    item3: 'value 3',
+  let editor = {
+    TextControl: { /* ... */ },
+    ToggleControl: { /* ... */ },
+    CheckboxControl: { /* ... */ }
   };
 
 // We want to assign 1st and 2nd item to their own variable. The old way is to do this:
 
-  let item1 = myObject.item1;
-  let item2 = myObject.item2;
+  let TextControl = editor.TextControl;
+  let ToggleControl = editor.ToggleControl;
 
-// New way:
+// Now we can assign them using this new syntax:
 
-  let { item1, item2 } = myObject;
+  let { TextControl, ToggleControl } = editor;
 
-// This syntax forces you to have the same variable name as the key.
+// The disadvantage of using this is that you can't change the variable name.
+// It has to be EXACTLY the same as the object's key.
 
 
 /////
@@ -146,9 +151,6 @@
   let array2 = [ 'text1', ...array1, 'text4' ];
 
   console.log( array2 ) // [ 'text1', 'text2', 'text3 , 'text4' ]
-
-// Before this syntax is available, we have to slice and merge it again.
-// You might think this is useless, but we will see a real use case in latter tutorial.
 
 
 /////
@@ -181,6 +183,33 @@
 
   console.log( nums2 ); // [ 0, 1, 4, 9, 16, 25, 36, 49, 64 ];
 
+
+/////
+
+/**
+ * 7. React Elements
+ * 
+ * Gutenberg uses this JS Library called React.
+ * 
+ * So we follow React's syntax to create HTML markup, which is:
+ * 
+ *     wp.element.createElement( tag, attributes, children )
+ */
+
+// EXAMPLE: Create the markup below in React
+//
+//   <div class="my-div">
+//     <p style="background-color: #ff00ee"> This is a paragraph </p>
+//   </div>
+
+  const el = wp.element.createElement; // create shortcut
+
+  el( 'div', { className: 'my-div' },
+    el( 'p', { style: { backgroundColor: '#ff00ee' } }, 'This is a paragraph' )
+  );
+
+
+/////
 
 /*
   That's all folks!

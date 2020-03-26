@@ -22,10 +22,13 @@ blocks.registerBlockType( 'wpbt/tut-01', {
   icon: 'book',
   category: 'layout',
 
-  // Define how to extract values from saved content
+  // Attribute is a value that you can pass on to HTML markup. It automatically gets updated when the value changes.
   attributes: {
-    // RichText value is array, and we want to get every children under <p>
-    content: { type: 'array', source: 'children', selector: 'p' },
+    content: {
+      type: 'array',
+      source: 'children', // if an attribute has 'source', it will extract the value from saved HTML markup
+      selector: 'p' // take the chilren of 'p'
+    },
   },
 
   // This value will be used for Preview when selecting block
@@ -43,8 +46,10 @@ blocks.registerBlockType( 'wpbt/tut-01', {
       tagName: 'p',
       className: props.className,
       value: atts.content,
-      onChange: ( newContent ) => {
-        props.setAttributes( { content: newContent } );
+
+      // Listener when the RichText is changed.
+      onChange: ( value ) => {
+        props.setAttributes( { content: value } );
       },
       
     } );

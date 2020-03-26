@@ -12,11 +12,27 @@ Summary:
 
 > If you spot a mistake or want to request a topic, let me know in [Issues](https://github.com/hrsetyono/wp-blocks-tutorial/issues)
 
+## Tutorial 00 - JavaScript ES5 Syntax (Optional)
+
+If you are not too familiar with the new JavaScript syntax, start here.
+
+Topics covered:
+
+1. Self Invoking Function
+1. Let and Const
+1. Use Strict
+1. Arrow Function
+1. Destructuring Assigment
+1. Spread Operator
+1. Array Map
+1. React Element
+
 ## Tutorial 01 - Single Field
 
 Create a block containing a single input field with rich formatting.
 
 ![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch01-richtext.jpg)
+
 
 ## Tutorial 02 - Multiple Fields
 
@@ -40,13 +56,13 @@ Continuing from Tut 02 (yes, ignore Tut 03), add these:
 
 ![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch04-custom-sidebar.jpg)
 
-### Tutorial 04b - More Inspector Controls
+## Tutorial 04b - More Inspector Controls
 
 Learn about various type of built-in controls:
 
 ![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch04b-more-sidebar.jpg)
 
-### Tutorial 04c - Custom Color Pickers
+## Tutorial 04c - Custom Color Pickers
 
 Learn how to make Color pickers that is not using the list from Palette.
 
@@ -65,7 +81,7 @@ Create a block to show latest X posts of selected category.
 ![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch06-dynamic-block.jpg)
 
 
-### Tutorial 06b - Dynamic Block (Part 2)
+## Tutorial 06b - Dynamic Block (Part 2)
 
 Transform the Cooking Recipe from Tutorial 02 into dynamic block.
 
