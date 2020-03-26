@@ -52,11 +52,11 @@ blocks.registerBlockType( 'wpbt/tut-06', {
     }
 
 
-    return el( 'div', {},
+    return el( 'div', { className: props.className },
     
       // Category select
       el( 'div', {}, 
-        el( 'label', {}, 'Post Category' ),
+        el( 'label', {}, 'Post Category: ' ),
         el( 'select',
           {
             value: atts.selectedCategory,
@@ -77,10 +77,10 @@ blocks.registerBlockType( 'wpbt/tut-06', {
 
       // Input for postsPerPage
       el( 'div', {},
-        el( 'label', {}, 'Posts per Page' ),
+        el( 'label', {}, 'Posts per Page: ' ),
         el( 'input', {
           value: atts.postsPerPage,
-          placeholder: 'Posts per Page',
+          placeholder: 'Enter number of posts',
           type: 'number',
           
           onChange: (e) => {

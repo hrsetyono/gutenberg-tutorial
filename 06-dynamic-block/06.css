@@ -3,40 +3,6 @@
  * editor-specific styles using the same selectors will take precedence.
  */
 
- .wp-block-wpbt-tut-06 .recipe-image {
-	background: #f1f1f1;
-	float: right;
-	width: 50%;
-	min-height: 100px;
-	text-align: center;
-}
-
-.wp-block-wpbt-tut-06 .recipe-image button {
-	margin-top: 30px;
-}
-
-.wp-block-wpbt-tut-06 .recipe-image .button--transparent {
-	margin: 0;
-	padding: 0;
-	display: block;
-}
-
-.wp-block-wpbt-tut-06 .recipe-image img {
-	display: block;
-	z-index: 1;
-	position: relative;
-}
-
-.wp-block-wpbt-tut-06 h2 {
-	font-size: 1.5em;
-}
-
-.wp-block-wpbt-tut-06 ul {
-	padding-left: 2.5em !important;
-}
-
-.wp-block-wpbt-tut-06:after { 
-	content:""; 
-	clear:both; 
-	display: table; 
+.wp-block-wpbt-tut-06 > div {
+  margin-bottom: 1rem;
 }
