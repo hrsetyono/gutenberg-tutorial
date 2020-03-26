@@ -1,5 +1,5 @@
 /*
-  Tutorial 04b - All Inspector Controls
+  Tutorial 04b - More Inspector Controls
   
   - Learn how to add more controls in Inspector.
   
@@ -23,7 +23,7 @@ const { RichText, InspectorControls } = editor;
 const { PanelBody, TextControl, ToggleControl, CheckboxControl, RadioControl, SelectControl, TextareaControl, RangeControl } = components;
 
 blocks.registerBlockType( 'wpbt/tut-04b', {
-  title: '04b - All Inspector Controls',
+  title: '04b - More Inspector Controls',
   icon: 'book',
   category: 'layout',
 

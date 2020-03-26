@@ -1,6 +1,6 @@
-# WP Gutenberg Tutorial
+# WP Gutenberg Development Tutorial
 
-Learn Gutenberg from basic to semi-advanced! Start from Tutorial 01 and progress from there.
+Learn how to make custom block from the very basic!
 
 Summary:
 
@@ -10,8 +10,75 @@ Summary:
 
 - All important parts are commented in the code.
 
-> If you have any question, let me know in [Issues](https://github.com/hrsetyono/wp-blocks-tutorial/issues)
+> If you spot a mistake or want to request a topic, let me know in [Issues](https://github.com/hrsetyono/wp-blocks-tutorial/issues)
 
-### Credit
+## Tutorial 01 - Single Field
 
-This tutorial is based on the [official code sample](https://github.com/WordPress/gutenberg-examples), but more applicable in real world use.
+Create a block containing a single input field with rich formatting.
+
+![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch01-richtext.jpg)
+
+## Tutorial 02 - Multiple Fields
+
+Make a block for Cooking Recipe with 4 fields: Title, Image, Ingredients, and Steps.
+
+![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch02-multiple-richtext.jpg)
+
+## Tutorial 03 - Custom Toolbar
+
+Continuing from Tut 02, add 'Alignment' and 'Image on the Right/Left' buttons in the toolbar.
+
+![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch03-custom-toolbar.jpg)
+
+## Tutorial 04 - Custom Sidebar (Inspector)
+
+Continuing from Tut 02 (yes, ignore Tut 03), add these:
+
+- A Color Palette to change Title color.
+- A Text field to add label to the top-right of recipe.
+- A toggle to enable/disable the Image.
+
+![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch04-custom-sidebar.jpg)
+
+### Tutorial 04b - More Inspector Controls
+
+Learn about various type of built-in controls:
+
+![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch04b-more-sidebar.jpg)
+
+### Tutorial 04c - Custom Color Pickers
+
+Learn how to make Color pickers that is not using the list from Palette.
+
+![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch04c-custom-color-picker.jpg)
+
+## Tutorial 05 - Nested Blocks
+
+Create a block containing Heading, Paragraph, and Image blocks by default.
+
+![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch05-nested-block.jpg)
+
+## Tutorial 06 - Dynamic Block
+
+Create a block to show latest X posts of selected category.
+
+![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch06-dynamic-block.jpg)
+
+
+### Tutorial 06b - Dynamic Block (Part 2)
+
+Transform the Cooking Recipe from Tutorial 02 into dynamic block.
+
+**NOTE**: This is a very important tutorial. Do not skip this!
+
+If you changed the HTML markup of a block, it won't change the one already being used.
+
+So, the solution is to render the HTML markup via PHP so the changes can be applied to all at once.
+
+## Tutorial 07 - Using ESNext syntax
+
+Coming Soon
+
+-----
+
+> If you spot a mistake or want to request a topic, let me know in [Issues](https://github.com/hrsetyono/wp-blocks-tutorial/issues)

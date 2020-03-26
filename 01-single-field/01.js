@@ -6,7 +6,7 @@
   - Learn about RichText field
   
   TASK:
-    Create a block containing a single input field
+    Create a block containing a single input field with rich formatting.
   
   REFERENCE:
   - https://github.com/WordPress/gutenberg-examples

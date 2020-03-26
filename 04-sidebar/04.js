@@ -5,7 +5,7 @@
   - Learn how to add color palette in Inspector
   
   TASK:
-    Continuing from the result of Tut 02 (yes, ignore Tut 03), add these:
+    Continuing from Tut 02 (yes, ignore Tut 03), add these:
     
     - A Color Palette to change Title color.
     - A Text field to add label to the top-right of recipe.

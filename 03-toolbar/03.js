@@ -5,7 +5,7 @@
   - Learn how to add alignment buttons in toolbar.
   
   TASK:
-    Continuing from the result of Tut 02, add 'Alignment' and 'Image on the Right/Left' buttons in the toolbar.
+    Continuing from Tut 02, add 'Alignment' and 'Image on the Right/Left' buttons in the toolbar.
   
   REFERENCE:
   - https://github.com/WordPress/gutenberg-examples
