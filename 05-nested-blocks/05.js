@@ -2,6 +2,7 @@
   Tutorial 05 - Nested Blocks
  
   - Learn how to create a group of other blocks using InnerBlocks.
+  - IMPORTANT: You can't have more than 1 InnerBlocks.
   
   TASK:
     Create a block containing Heading, Paragraph, and Image blocks by default.
