@@ -45,8 +45,7 @@ blocks.registerBlockType( 'wpbt/tut-04c', {
               label: 'Custom Color',
               value: atts.customColor,
               disableCustomColors: true,
-              // If you want to use default color from Palette, simply remove this argument
-              colors: [
+              colors: [ // If you want to use default color from Palette, simply remove this argument
                 { name: 'Red', slug: 'red', color: '#f44336' },
                 { name: 'Green', slug: 'green', color: '#4caf50' },
                 { name: 'Blue', slug: 'blue', color: '#2196f3' },
