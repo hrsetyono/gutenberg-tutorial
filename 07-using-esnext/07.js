@@ -1,16 +1,23 @@
-/**
- * Tutorial 06b - Dynamic Block Part 2
- * 
- * Check out the README in this folder for details
- */
+/*
+  Tutorial 07 - Using ESNext Syntax
+  
+  - Learn how to use the new syntax of JavaScript
+  - Learn how to compile them into old JavaScript that's supported by browser.
+  
+  TASK:
+    Transform the Cooking Recipe from Tutorial 06b to ESNext Syntax
+  
+  REFERENCE:
+  - https://developer.wordpress.org/block-editor/tutorials/block-tutorial/creating-dynamic-blocks/
+*/
 ( function( blocks, editor, element, components ) { 'use strict';
 
 const el = element.createElement;
 const { RichText, MediaUpload, InnerBlocks } = editor;
 
 
-blocks.registerBlockType( 'wpbt/tut-06b', {
-  title: '06b - Dynamic Block Part 2',
+blocks.registerBlockType( 'wpbt/tut-07', {
+  title: '07 - Using ESNext Syntax',
   icon: 'book',
   category: 'layout',
 
@@ -102,10 +109,3 @@ blocks.registerBlockType( 'wpbt/tut-06b', {
 } );
 
 } )( window.wp.blocks, window.wp.blockEditor, window.wp.element, window.wp.components );
-
-
-/*
-  That's all folks!
-  
-  If you spot a mistake or want to request a topic, let me know in https://github.com/hrsetyono/wp-blocks-tutorial/issues
-*/

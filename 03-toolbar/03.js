@@ -1,16 +1,8 @@
-/*
-  Tutorial 03 - Custom Toolbar
-  
-  - Learn how to add new buttons in toolbar.
-  - Learn how to add alignment buttons in toolbar.
-  
-  TASK:
-    Continuing from Tut 02, add 'Alignment' and 'Image on the Right/Left' buttons in the toolbar.
-  
-  REFERENCE:
-  - https://github.com/WordPress/gutenberg-examples
-  - https://gist.github.com/rmorse/1300421889ec7fbb9217899e61ab703d
-*/
+/**
+ * Tutorial 03 - Custom Toolbar
+ * 
+ * Check out the README in this folder for details
+ */
 ( function( blocks, editor, element, components ) { 'use strict';
 
 const el = element.createElement;
@@ -77,7 +69,7 @@ blocks.registerBlockType( 'wpbt/tut-03', {
               className: atts.imagePosition === 'left' ? 'is-active' : '',
               onClick: _onClickImageLeft,
             },
-					]
+          ]
         },
         // Alignment buttons are special, so it needs to be inserted as children of BlockControls
         el( AlignmentToolbar, {

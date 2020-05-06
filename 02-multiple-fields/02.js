@@ -1,15 +1,8 @@
-/*
-  Tutorial 02 - Multiple Fields
-  
-  - Learn how to create multiple fields.
-  - Learn about MediaUpload field.
-  
-  TASK:
-    Make a block for Cooking Recipe with 4 fields: Title, Image, Ingredients, and Steps.
-  
-  REFERENCE:
-  - https://github.com/WordPress/gutenberg-examples
-*/
+/**
+ * Tutorial 02 - Multiple Fields
+ * 
+ * Check out the README in this folder for details
+ */
 ( function( blocks, editor, element, components ) { 'use strict';
 
 const el = element.createElement;

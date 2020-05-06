@@ -16,17 +16,6 @@ Summary:
 
 If you are not too familiar with the new JavaScript syntax, start here.
 
-Topics covered:
-
-1. Self Invoking Function
-1. Let and Const
-1. Use Strict
-1. Arrow Function
-1. Destructuring Assigment
-1. Spread Operator
-1. Array Map
-1. React Element
-
 ## Tutorial 01 - Single Field
 
 Create a block containing a single input field with rich formatting.
@@ -42,17 +31,13 @@ Make a block for Cooking Recipe with 4 fields: Title, Image, Ingredients, and St
 
 ## Tutorial 03 - Custom Toolbar
 
-Continuing from Tut 02, add 'Alignment' and 'Image on the Right/Left' buttons in the toolbar.
+Learn how to add custom buttons into the Toolbar.
 
 ![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch03-custom-toolbar.jpg)
 
 ## Tutorial 04 - Custom Sidebar (Inspector)
 
-Continuing from Tut 02 (yes, ignore Tut 03), add these:
-
-- A Color Palette to change Title color.
-- A Text field to add label to the top-right of recipe.
-- A toggle to enable/disable the Image.
+Learn about adding field and buttons into the Sidebar.
 
 ![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch04-custom-sidebar.jpg)
 

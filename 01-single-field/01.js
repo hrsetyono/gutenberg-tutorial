@@ -1,17 +1,8 @@
-/*
-  Tutorial 01 - Single Field
-  
-  - Learn the basic of creating custom block.
-  - Introduces the concept of attributes.
-  - Learn about RichText field
-  
-  TASK:
-    Create a block containing a single input field with rich formatting.
-  
-  REFERENCE:
-  - https://github.com/WordPress/gutenberg-examples
-  - https://developer.wordpress.org/block-editor/developers/block-api/block-attributes/
-*/
+/**
+ * Tutorial 01 - Single Field
+ * 
+ * Check out the README in this folder for details
+ */
 ( function( blocks, editor, element, components ) { 'use strict';
 
 const el = element.createElement;

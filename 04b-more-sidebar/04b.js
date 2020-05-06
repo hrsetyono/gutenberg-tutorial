@@ -1,21 +1,8 @@
-/*
-  Tutorial 04b - More Inspector Controls
-  
-  - Learn how to add more controls in Inspector.
-  
-  TASK:
-    Continuing from Tutorial 01, add these field type in Inspector:
-  
-    - Textarea    - Radio
-    - Checkbox    - Select
-    - Range
-  
-    No need to be applied in any part of edit() or save(), just showcase them.
-  
-  REFERENCE:
-  - https://rudrastyh.com/gutenberg/inspector-controls.html
-  - https://florianbrinkmann.com/en/different-color-palettes-gutenberg-5327/
-*/
+/**
+ * Tutorial 04b - More Inspector Controls
+ * 
+ * Check out the README in this folder for details
+ */
 ( function( blocks, editor, element, components ) { 'use strict';
 
 const el = element.createElement;

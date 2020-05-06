@@ -1,18 +1,8 @@
-/*
-  Tutorial 06 - Dynamic Block
-
-  - Learn how to make a block where the HTML markup is dynamic like Latest Posts.
-  - Learn how to do API Call
-  
-  TASK:
-    Create a block to show latest X posts of selected category. Use `<select>` and `<input type="number">`
-
-    To make it dynamic, make save() returns null.
-  
-  REFERENCE:
-  - https://developer.wordpress.org/block-editor/tutorials/block-tutorial/creating-dynamic-blocks/
-  - https://www.youtube.com/watch?v=sYHYTk0jeE8
-*/
+/**
+ * Tutorial 06 - Dynamic Block
+ * 
+ * Check out the README in this folder for details
+ */
 ( function( blocks, editor, element, components ) { 'use strict';
 
 const el = element.createElement;
@@ -24,7 +14,7 @@ blocks.registerBlockType( 'wpbt/tut-06', {
 
   // Attributes for Latest Posts
   attributes: {
-    postsPerPage: { type: 'string' },
+    postsPerPage: { type: 'number' },
     selectedCategory: { type: 'string' },
     categories: { type: 'object' },
   },
