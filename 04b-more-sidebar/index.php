@@ -6,8 +6,12 @@ add_action( 'init', function() {
     return;
   }
 
-  wp_register_script( 'tut-04b', plugin_dir_url( __FILE__ ) . '/04b.js', [ 'wp-blocks', 'wp-dom' ] , null, true );
-  wp_register_style( 'tut-04b', plugin_dir_url( __FILE__ ) . '/04b.css', [ 'wp-edit-blocks' ] );
+  // If this code is in Theme, replace this with `get_stylesheet_directory_uri()`
+  $js_dir = plugin_dir_url( __FILE__ );
+  $css_dir = plugin_dir_url( __FILE__ );
+
+  wp_register_script( 'tut-04b', $js_dir . '/04b.js', [ 'wp-blocks', 'wp-dom' ] , null, true );
+  wp_register_style( 'tut-04b', $css_dir . '/04b.css', [ 'wp-edit-blocks' ] );
 
   register_block_type( 'wpbt/tut-04b', [
     'editor_style' => 'tut-04b',
