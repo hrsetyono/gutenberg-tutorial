@@ -18,3 +18,14 @@ add_action( 'init', function() {
     'editor_script' => 'tut-04',
   ] );
 } );
+
+
+/**
+ * Fixed bug with Gutenberg not allowing custom inline-style
+ * 
+ * https://github.com/WordPress/gutenberg/issues/15137
+ */
+add_filter( 'safe_style_css', function() {
+  $attr[] = '--titleColor';
+  return $attr;
+} );

@@ -50,12 +50,27 @@ blocks.registerBlockType( 'wpbt/tut-02', {
       } ),
       
       // Image area
-      el(	'div', { className: 'recipe-image' },
+      el( 'div', { className: 'recipe-image' },
         el( MediaUpload, {
-          onSelect: _onSelectImage,
           allowedTypes: 'image',
           value: atts.mediaID,
-          render: _renderImage
+          onSelect: ( media ) => {
+            return props.setAttributes( {
+              mediaURL: media.url,
+              mediaID: media.id,
+            } );
+          },
+          // Create a button that opens media library when clicked
+          render: ( obj ) => {
+            return el( components.Button,
+              {
+                className: atts.mediaID	? 'button button--transparent' : 'button',
+                onClick: obj.open,
+              },
+              // If Image ID exists, show <img>, otherwise show a text to upload imge.
+              atts.mediaID ? el( 'img', { src: atts.mediaURL } ) : 'Upload Image'
+            );
+          }
         } )
       ),
 
@@ -88,28 +103,6 @@ blocks.registerBlockType( 'wpbt/tut-02', {
         },
       } )
     );
-
-    /////
-
-    // Update attribute after selecting image
-    function _onSelectImage( media ) {
-      return props.setAttributes( {
-        mediaURL: media.url,
-        mediaID: media.id,
-      } );
-    }
-    
-    // Create a button to trigger Image Library window.
-    function _renderImage( obj ) {
-      return el( components.Button,
-        {
-          className: atts.mediaID	? 'button button--transparent' : 'button',
-          onClick: obj.open,
-        },
-        // If Image ID exists, show <img>, otherwise show a text to upload imge.
-        atts.mediaID ? el( 'img', { src: atts.mediaURL } ) : 'Upload Image'
-      );
-    }
 
   },
 

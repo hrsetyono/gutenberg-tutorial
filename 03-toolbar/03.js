@@ -61,35 +61,47 @@ blocks.registerBlockType( 'wpbt/tut-03', {
               icon: 'align-right',
               title: 'Image on Right',
               className: atts.imagePosition === 'right' ? 'is-active' : '', // active state for the buttons
-              onClick: _onClickImageRight,
+              onClick: () => {
+                props.setAttributes( { imagePosition: 'right' } );
+              },
             },
             {
               icon: 'align-left',
               title: 'Image on Left',
               className: atts.imagePosition === 'left' ? 'is-active' : '',
-              onClick: _onClickImageLeft,
+              onClick: () => {
+                props.setAttributes( { imagePosition: 'left' } );
+              },
             },
           ]
         },
         // Alignment buttons are special, so it needs to be inserted as children of BlockControls
         el( AlignmentToolbar, {
           value: atts.alignment,
-          onChange: _onChangeAlignment,
+          onChange: ( value ) => {
+            props.setAttributes( { alignment: value ? value : 'none' } );
+          },
         } )
       ),
 
+      // BODY
       el( 'div',
         {
           className: props.className + ' image-' + atts.imagePosition, // add image position class
           style: { textAlign: atts.alignment }, // add 'style' attribute and set 'text-align' property
         },
 
-        // Minimized, read Tut 02 if you want expanded version
-        el( RichText, { tagName: 'h2',  inline: true, placeholder: 'Write Recipe title…', value: atts.title,
-          onChange: ( newTitle ) => { props.setAttributes( { title: newTitle } ); }, }
-        ),
+        // MINIMIZED, read Tut 02 if you want expanded version
+        el( RichText, { tagName: 'h2',  inline: true, placeholder: 'Write Recipe title…', value: atts.title, onChange: ( newTitle ) => { props.setAttributes( { title: newTitle } ); }, } ),
         el(	'div', { className: 'recipe-image' },
-          el( MediaUpload, {  onSelect: _onSelectImage, allowedTypes: 'image', value: atts.mediaID, render: _renderImage } )
+          el( MediaUpload, { allowedTypes: 'image', value: atts.mediaID,
+            onSelect: ( media ) => {
+              return props.setAttributes( { mediaURL: media.url, mediaID: media.id, } );
+            },
+            render: ( obj ) => {
+              return el( components.Button, { className: atts.mediaID	? 'button button--transparent' : 'button', onClick: obj.open }, atts.mediaID ? el( 'img', { src: atts.mediaURL } ) : 'Upload Image' );
+            } }
+          )
         ),
         el( 'h3', {}, 'Ingredients' ),
         el( RichText, {
@@ -104,42 +116,6 @@ blocks.registerBlockType( 'wpbt/tut-03', {
       
       )
     ];
-
-    /////
-
-    // Update the alignment
-    function _onChangeAlignment( newAlignment ) {
-      props.setAttributes( { alignment: newAlignment ? newAlignment : 'none' } );
-    }
-
-    // Update the image position
-    function _onClickImageRight() {
-      props.setAttributes( { imagePosition: 'right' } );
-    }
-
-    function _onClickImageLeft() {
-      props.setAttributes( { imagePosition: 'left' } );
-    }
-
-
-    function _onSelectImage( media ) {
-      return props.setAttributes( {
-        mediaURL: media.url,
-        mediaID: media.id,
-      } );
-    }
-    
-    function _renderImage( obj ) {
-      return el( components.Button,
-        {
-          className: atts.mediaID	? 'button button--transparent' : 'button',
-          onClick: obj.open,
-        },
-        // If Image ID exists, show <img>, otherwise show a text to upload imge.
-        atts.mediaID ? el( 'img', { src: atts.mediaURL } ) : 'Upload Image'
-      );
-    }
-
   },
 
   //
