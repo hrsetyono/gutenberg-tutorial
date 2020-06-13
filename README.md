@@ -63,7 +63,7 @@ Summary:
 
     Transform the Cooking Recipe from Tutorial 02 into dynamic block.
 
-- [Tutorial 07](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/07-using-jsx) - Using ESNext syntax
+- [Tutorial 07](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/07-using-esnext) - Using ESNext syntax
 
     Transform the Cooking Recipe into the new and tidier syntax.
 
