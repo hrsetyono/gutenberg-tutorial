@@ -10,7 +10,7 @@ const el = element.createElement;
 const { RichText, MediaUpload, BlockControls, AlignmentToolbar } = editor;
 
 
-blocks.registerBlockType( 'wpbt/tut-03', {
+blocks.registerBlockType( 'my/tut-03', {
   title: '03 - Custom Toolbar',
   icon: 'book',
   category: 'layout',

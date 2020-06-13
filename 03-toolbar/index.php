@@ -13,7 +13,7 @@ add_action( 'init', function() {
   wp_register_script( 'tut-03', $js_dir . '/03.js', [ 'wp-blocks', 'wp-dom' ] , null, true );
   wp_register_style( 'tut-03', $css_dir . '/03.css', [ 'wp-edit-blocks' ] );
 
-  register_block_type( 'wpbt/tut-03', [
+  register_block_type( 'my/tut-03', [
     'editor_style' => 'tut-03',
     'editor_script' => 'tut-03',
   ] );

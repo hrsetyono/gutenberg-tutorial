@@ -2,7 +2,7 @@
  * Note that these styles are loaded *before* editor styles, so that
  * editor-specific styles using the same selectors will take precedence.
  */
- .wp-block-wpbt-tut-04 .recipe-image {
+ .wp-block-my-tut-04 .recipe-image {
 	background: #f1f1f1;
 	float: right;
 	width: 50%;
@@ -11,43 +11,44 @@
 }
 
 /* Image Position */
-.wp-block-wpbt-tut-04.image-left .recipe-image {
+.wp-block-my-tut-04.image-left .recipe-image {
 	float: left;
 	margin-right: 1.5rem;
 }
 
-.wp-block-wpbt-tut-04 .recipe-image button {
+.wp-block-my-tut-04 .recipe-image button {
 	margin-top: 30px;
 }
 
-.wp-block-wpbt-tut-04 .recipe-image .button--transparent {
+.wp-block-my-tut-04 .recipe-image .button--transparent {
 	margin: 0;
 	padding: 0;
 	display: block;
+	height: auto;
 }
 
-.wp-block-wpbt-tut-04 .recipe-image img {
+.wp-block-my-tut-04 .recipe-image img {
 	display: block;
 	z-index: 1;
 	position: relative;
 }
 
-div.wp-block-wpbt-tut-04 h2 {
+div.wp-block-my-tut-04 h2 {
 	color: var(--titleColor, inherit) /* Custom color */
 }
 
-.wp-block-wpbt-tut-04 ul {
+.wp-block-my-tut-04 ul {
 	padding-left: 2.5em !important;
 }
 
-.wp-block-wpbt-tut-04:after { 
+.wp-block-my-tut-04:after { 
 	content:""; 
 	clear:both; 
 	display: table; 
 }
 
 /* Add styling to the Label */
-.wp-block-wpbt-tut-04 label {
+.wp-block-my-tut-04 label {
 	position: absolute;
 	top: 0;
 	right: 0;

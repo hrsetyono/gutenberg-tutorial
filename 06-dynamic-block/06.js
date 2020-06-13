@@ -7,7 +7,7 @@
 
 const el = element.createElement;
 
-blocks.registerBlockType( 'wpbt/tut-06', {
+blocks.registerBlockType( 'my/tut-06', {
   title: '06 - Dynamic Block',
   icon: 'book',
   category: 'layout',

@@ -3,6 +3,6 @@
  * editor-specific styles using the same selectors will take precedence.
  */
 
-.wp-block-wpbt-tut-06 > div {
+.wp-block-my-tut-06 > div {
   margin-bottom: 1rem;
 }

@@ -10,75 +10,84 @@ Summary:
 
 - All important parts are commented in the code.
 
-> If you spot a mistake or want to request a topic, let me know in [Issues](https://github.com/hrsetyono/wp-blocks-tutorial/issues)
+> If you spot a mistake or want to request a topic, let me know in [Issues](https://github.com/hrsetyono/gutenberg-tutorial/issues)
 
-## Tutorial 00 - JavaScript ES5 Syntax (Optional)
+-----
 
-If you are not too familiar with the new JavaScript syntax, start here.
+# Table of Content
 
-## Tutorial 01 - Single Field
+## [Tutorial 0](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/00-javascript-es5) - JavaScript ES5 Syntax (Optional)
+
+  If you are not too familiar with the new JavaScript syntax, start here.
+
+
+## [Tutorial 01](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/01-single-field) - Single Field
 
 Create a block containing a single input field with rich formatting.
 
 ![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch01-richtext.jpg)
 
 
-## Tutorial 02 - Multiple Fields
+## [Tutorial 02](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/02-multiple-fields) - Multiple Fields
 
 Make a block for Cooking Recipe with 4 fields: Title, Image, Ingredients, and Steps.
 
 ![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch02-multiple-richtext.jpg)
 
-## Tutorial 03 - Custom Toolbar
+
+## [Tutorial 03](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/03-toolbar) - Custom Toolbar
 
 Learn how to add custom buttons into the Toolbar.
 
 ![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch03-custom-toolbar.jpg)
 
-## Tutorial 04 - Custom Sidebar (Inspector)
+
+## [Tutorial 04](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/04-sidebar) - Custom Sidebar (Inspector)
 
 Learn about adding field and buttons into the Sidebar.
 
 ![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch04-custom-sidebar.jpg)
 
-## Tutorial 04b - More Inspector Controls
+
+## [Tutorial 04b](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/04b-more-sidebar) - More Inspector Controls
 
 Learn about various type of built-in controls:
 
 ![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch04b-more-sidebar.jpg)
 
-## Tutorial 04c - Custom Color Pickers
+
+## [Tutorial 04c](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/04c-custom-colors) - Custom Color Pickers
 
 Learn how to make Color pickers that is not using the list from Palette.
 
 ![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch04c-custom-color-picker.jpg)
 
-## Tutorial 05 - Nested Blocks
+
+## [Tutorial 05](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/05-nested-blocks) - Nested Blocks
 
 Create a block containing Heading, Paragraph, and Image blocks by default.
 
 ![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch05-nested-block.jpg)
 
-## Tutorial 06 - Dynamic Block
+
+## [Tutorial 06](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/06-dynamic-block) - Dynamic Block
 
 Create a block to show latest X posts of selected category.
 
 ![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch06-dynamic-block.jpg)
 
 
-## Tutorial 06b - Dynamic Block (Part 2)
+## [Tutorial 06b](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/06b-dynamic-block-pt2) - Dynamic Block (Part 2)
 
 Transform the Cooking Recipe from Tutorial 02 into dynamic block.
 
-**NOTE**: This is a very important tutorial. Do not skip this!
+## [Tutorial 07](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/07-using-jsx) - Using ESNext syntax
 
-If you changed the HTML markup of a block, it won't change the one already being used.
+Transform the Cooking Recipe into the new and tidier syntax.
 
-So, the solution is to render the HTML markup via PHP so the changes can be applied to all at once.
+## Tutorial 08 - Link and Popup
 
-## Tutorial 07 - Using ESNext syntax
-
-Coming Soon
+Coming soon
 
 -----
 

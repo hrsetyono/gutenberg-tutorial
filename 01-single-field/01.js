@@ -8,7 +8,7 @@
 const el = element.createElement;
 const { RichText } = editor;
 
-blocks.registerBlockType( 'wpbt/tut-01', {
+blocks.registerBlockType( 'my/tut-01', {
   title: '01 - Single Field',
   icon: 'book',
   category: 'layout',

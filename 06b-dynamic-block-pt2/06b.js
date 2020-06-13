@@ -9,7 +9,7 @@ const el = element.createElement;
 const { RichText, MediaUpload, InnerBlocks } = editor;
 
 
-blocks.registerBlockType( 'wpbt/tut-06b', {
+blocks.registerBlockType( 'my/tut-06b', {
   title: '06b - Dynamic Block Part 2',
   icon: 'book',
   category: 'layout',

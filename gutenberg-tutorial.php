@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: WP Blocks Tutorial
+ * Plugin Name: Gutenberg Tutorial
  * Description: Tutorial code for creating custom Gutenberg block in WordPress
- * Plugin URI: http://github.com/hrsetyono/wp-blocks-tutorial
+ * Plugin URI: http://github.com/hrsetyono/gutenberg-tutorial
  * Requires at least: 5.3
  * Requires PHP: 7.0
  * License: MIT
@@ -23,3 +23,4 @@ require_once '04c-custom-colors/index.php';
 require_once '05-nested-blocks/index.php';
 require_once '06-dynamic-block/index.php';
 require_once '06b-dynamic-block-pt2/index.php';
+require_once '07-using-esnext/index.php';

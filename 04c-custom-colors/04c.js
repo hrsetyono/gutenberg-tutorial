@@ -8,7 +8,7 @@
 const el = element.createElement;
 const { RichText, InspectorControls, PanelColorSettings } = editor;
 
-blocks.registerBlockType( 'wpbt/tut-04c', {
+blocks.registerBlockType( 'my/tut-04c', {
   title: '04c - Custom Color Picker',
   icon: 'book',
   category: 'layout',

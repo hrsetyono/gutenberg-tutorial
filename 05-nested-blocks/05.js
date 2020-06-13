@@ -8,7 +8,7 @@
 const el = element.createElement;
 const { InnerBlocks } = editor;
 
-blocks.registerBlockType( 'wpbt/tut-05', {
+blocks.registerBlockType( 'my/tut-05', {
   title: '05 - Nested Blocks',
   icon: 'book',
   category: 'layout',

@@ -3,7 +3,7 @@
  * editor-specific styles using the same selectors will take precedence.
  */
 
-.wp-block-wpbt-tut-05 {
+.wp-block-my-tut-05 {
   padding: 1em;
   border: 1px dashed rgba(0,0,0,.2);
 }

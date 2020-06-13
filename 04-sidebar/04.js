@@ -11,7 +11,7 @@ const { RichText, MediaUpload, InspectorControls, ColorPalette } = editor;
 const { TextControl, ToggleControl, PanelBody } = components;
 
 
-blocks.registerBlockType( 'wpbt/tut-04', {
+blocks.registerBlockType( 'my/tut-04', {
   title: '04 - Custom Inspector',
   icon: 'book',
   category: 'layout',

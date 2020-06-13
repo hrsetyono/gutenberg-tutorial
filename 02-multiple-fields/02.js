@@ -7,20 +7,40 @@
 
 const el = element.createElement;
 const { RichText, MediaUpload } = editor;
+const { Button } = components;
 
 
-blocks.registerBlockType( 'wpbt/tut-02', {
+blocks.registerBlockType( 'my/tut-02', {
   title: '02 - Multiple Fields',
   icon: 'book',
   category: 'layout',
 
-  // Define how to extract values from saved content
+  // List of data.
   attributes: {
-    title: { type: 'array', source: 'children', selector: 'h2' },
-    mediaID: { type: 'number' }, // not extracting from anywhere
-    mediaURL: { type: 'string', source: 'attribute', selector: 'img', attribute: 'src' }, // extract from 'src' attribute of <img>
-    ingredients: { type: 'array', source: 'children', selector: '.ingredients' },
-    steps: { type: 'array', source: 'children', selector: '.steps' },
+    title: { // extract from <h2>
+      type: 'array',
+      source: 'children',
+      selector: 'h2'
+    },
+    mediaID: { // not extracting from anywhere
+      type: 'number'
+    },
+    mediaURL: { // extract from 'src' attribute of <img>
+      type: 'string',
+      source: 'attribute',
+      selector: 'img',
+      attribute: 'src'
+    },
+    ingredients: { // extract from class 'ingredients'
+      type: 'array',
+      source: 'children',
+      selector: '.ingredients'
+    },
+    steps: { // extract from class 'steps'
+      type: 'array',
+      source: 'children',
+      selector: '.steps'
+    },
   },
 
   // This value will be used for Preview when selecting block
@@ -55,14 +75,14 @@ blocks.registerBlockType( 'wpbt/tut-02', {
           allowedTypes: 'image',
           value: atts.mediaID,
           onSelect: ( media ) => {
-            return props.setAttributes( {
+            props.setAttributes( {
               mediaURL: media.url,
               mediaID: media.id,
             } );
           },
           // Create a button that opens media library when clicked
           render: ( obj ) => {
-            return el( components.Button,
+            return el( Button,
               {
                 className: atts.mediaID	? 'button button--transparent' : 'button',
                 onClick: obj.open,
@@ -107,10 +127,11 @@ blocks.registerBlockType( 'wpbt/tut-02', {
   },
 
   // Define what to save in Database
+  // This saved HTML will be used for extracting the attributes
   save: function( props ) {
     let atts = props.attributes;
 
-    return el( 'div',	{},
+    return el( 'div',	{ className: props.className },
       // Recipe Title
       el( RichText.Content, {
         tagName: 'h2',

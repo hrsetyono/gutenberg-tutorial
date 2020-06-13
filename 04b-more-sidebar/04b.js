@@ -9,7 +9,7 @@ const el = element.createElement;
 const { RichText, InspectorControls } = editor;
 const { PanelBody, TextControl, ToggleControl, CheckboxControl, RadioControl, SelectControl, TextareaControl, RangeControl } = components;
 
-blocks.registerBlockType( 'wpbt/tut-04b', {
+blocks.registerBlockType( 'my/tut-04b', {
   title: '04b - More Inspector Controls',
   icon: 'book',
   category: 'layout',
