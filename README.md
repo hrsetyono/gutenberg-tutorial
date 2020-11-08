@@ -10,8 +10,7 @@ Summary:
 
 - All important parts are commented in the code.
 
-> If you spot a mistake or want to request a topic, let me know in [Issues](https://github.com/hrsetyono/gutenberg-tutorial/issues)
-
+> Learn more about Wordpress at our tutorial site: [wpTips.dev](https://wptips.dev)
 
 ![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch02-multiple-richtext.jpg)
 
