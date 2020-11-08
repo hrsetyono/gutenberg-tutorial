@@ -95,7 +95,7 @@ blocks.registerBlockType( 'my/tut-04', {
         el( 'label', { className: atts.recipeLabel ? '' : 'hidden' }, atts.recipeLabel ),
 
         // Hide image if hasImage toggle is off
-        el(	'div',
+        el( 'div',
           { className: 'recipe-image ' + (atts.hasImage ? '' : 'hidden') },
           el( MediaUpload, {  onSelect: _onSelectImage, allowedTypes: 'image', value: atts.mediaID, render: _renderImage } )
         ),

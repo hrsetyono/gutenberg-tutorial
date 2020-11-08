@@ -7,7 +7,7 @@
     "@wordpress/scripts": "^9.0.0"
   },
   "scripts": {
-    "watch": "wp-scripts start esnext/07.js --output-path=.",
-    "build": "wp-scripts build esnext/07.js --output-path=."
+    "watch": "wp-scripts start esnext/07.js --output-path=js",
+    "build": "wp-scripts build esnext/07.js --output-path=js"
   }
 }
