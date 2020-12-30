@@ -1,0 +1,13 @@
+/**
+ * Note that these styles are loaded *before* editor styles, so that
+ * editor-specific styles using the same selectors will take precedence.
+ */
+
+.wp-block-my-tut-06 {
+  padding: 1rem;
+  border: 1px solid rgba(0,0,0,.1);
+}
+
+.wp-block-my-tut-06 > div {
+  margin-bottom: 1rem;
+}
