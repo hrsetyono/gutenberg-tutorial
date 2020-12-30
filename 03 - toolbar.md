@@ -10,6 +10,10 @@ Continuing from Tut 02, add 'Alignment' and 'Image on the Right/Left' buttons in
 
 ![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch03-custom-toolbar.jpg)
   
+**COMPILING ESNEXT**
+
+Read the README in this repo's root folder.
+
 **REFERENCE:**
 
 - https://github.com/WordPress/gutenberg-examples

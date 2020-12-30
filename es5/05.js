@@ -18,6 +18,7 @@ blocks.registerBlockType( 'my/tut-05', {
   //
   edit: ( props ) => {
     return el( 'div', { className: props.className },
+      // You can't have more than 1 InnerBlocks
       el( InnerBlocks, {
         // Only allow these blocks to be its children, remove this param to allow all blocks
         allowedBlocks: [ 'core/image', 'core/heading', 'core/paragraph', 'core/list' ],
@@ -33,9 +34,9 @@ blocks.registerBlockType( 'my/tut-05', {
     );
   },
 
-  // Save a div containing all the InnerBlocks content
   save: ( props ) => {
     return el( 'div', { className: props.className },
+      // Here's how to ouput InnerBlocks content
       el( InnerBlocks.Content )
     );
   },

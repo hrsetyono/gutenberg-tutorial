@@ -2,21 +2,32 @@
 
 Learn how to make custom block from the very basic!
 
-Summary:
-
-- **This repo is a working plugin.** You can download and activate it in your WordPress local installation to test it.
-
-- All codes use old ES5 syntax until Tutorial 07.
-
-- All important parts are commented in the code.
+**This repo is a working plugin.** You can download and activate it in your WordPress local installation to test it.
 
 > Learn more about Wordpress at our tutorial site: [wpTips.dev](https://wptips.dev)
 
-![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch02-multiple-richtext.jpg)
+
+## Two Versions
+
+Each tutorial has 2 versions: **ES5** (no compilation needed) and **ESNext** (need to compile).
+
+The ES5 is placed under `/es5` folder while the esnext source code is inside `/esnext-src` folder. `/esnext-build` is for the compiled output.
+
+Here's how to compile ESNext:
+
+1. Download and Install [NodeJS](https://nodejs.org/en/).
+1. Open command prompt / terminal in this directory and run the command `npm install`.
+1. Check out `package.json`, it has list of available scripts.
+
+    **For example:** To compile Tutorial 01, we use the command `npm run watch01`. It will automatically compile whenever the src file is changed. After finish, run `npm run build01` to minimize the compiled script.
+
+> To change which JS file to enqueue, edit `index.php` in respective folder.
 
 -----
 
 # Table of Content
+
+![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch02-multiple-richtext.jpg)
 
 - **[Tutorial 0](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/00-javascript-es5) - JavaScript ES5 Syntax (Optional)**
 
@@ -42,10 +53,6 @@ Summary:
 
     Learn about various type of built-in controls:
 
-- **[Tutorial 04c](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/04c-custom-colors) - Custom Color Pickers**
-
-    Learn how to make Color pickers that is not using the list from Palette.
-
 - **[Tutorial 05](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/05-nested-blocks) - Nested Blocks**
 
     Create a block containing Heading, Paragraph, and Image blocks by default.
@@ -58,9 +65,9 @@ Summary:
 
     Transform the Cooking Recipe from Tutorial 02 into dynamic block.
 
-- **[Tutorial 07](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/07-using-esnext) - Using ESNext syntax**
+- **[Tutorial 07](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/07-using-webpack) - Using Webpack**
 
-    Transform the Cooking Recipe into the new and tidier syntax.
+    Use Webpack to compile the React script
 
 - **Tutorial 08 - Link and Popup**
 
@@ -69,3 +76,6 @@ Summary:
 -----
 
 > If you spot a mistake or want to request a topic, let me know in [Issues](https://github.com/hrsetyono/wp-blocks-tutorial/issues)
+
+
+> Learn more about Wordpress at our tutorial site: [wpTips.dev](https://wptips.dev)

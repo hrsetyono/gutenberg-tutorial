@@ -1,0 +1,31 @@
+{
+  "name": "gutenberg-tutorial",
+  "private": true,
+  "author": "Henner Setyono (https://pixelstudio.id)",
+  "devDependencies": {
+    "@wordpress/components": "^11.1.1",
+    "@wordpress/scripts": "^12.5.0"
+  },
+  "scripts": {
+    "watch01": "wp-scripts start 01-single-field/esnext-src/01.js --output-path=01-single-field/esnext-build",
+    "build01": "wp-scripts build 01-single-field/esnext-src/01.js --output-path=01-single-field/esnext-build",
+
+    "watch02": "wp-scripts start 02-multiple-fields/esnext-src/02.js --output-path=02-multiple-fields/esnext-build",
+    "build02": "wp-scripts build 02-multiple-fields/esnext-src/02.js --output-path=02-multiple-fields/esnext-build",
+
+    "watch03": "wp-scripts start 03-toolbar/esnext-src/03.js --output-path=03-toolbar/esnext-build",
+    "build03": "wp-scripts build 03-toolbar/esnext-src/03.js --output-path=03-toolbar/esnext-build",
+
+    "watch04": "wp-scripts start 04-sidebar/esnext-src/04.js --output-path=04-sidebar/esnext-build",
+    "build04": "wp-scripts build 04-sidebar/esnext-src/04.js --output-path=04-sidebar/esnext-build",
+
+    "watch04b": "wp-scripts start 04b-more-sidebar/esnext-src/04b.js --output-path=04b-more-sidebar/esnext-build",
+    "build04b": "wp-scripts build 04b-more-sidebar/esnext-src/04b.js --output-path=04b-more-sidebar/esnext-build",
+
+    "watch05": "wp-scripts start 05-nested-blocks/esnext-src/* --output-path=05-nested-blocks/esnext-build",
+    "build05": "wp-scripts build 05-nested-blocks/esnext-src/* --output-path=05-nested-blocks/esnext-build",
+
+    "watch": "wp-scripts start esnext-src/index.js --output-path=esnext-build",
+    "build": "wp-scripts build esnext-src/index.js --output-path=esnext-build"
+  }
+}

@@ -12,6 +12,10 @@ To make it dynamic, make `save()` returns null.
 
 ![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch06-dynamic-block.jpg)
 
+**COMPILING ESNEXT**
+
+Read the README in this repo's root folder.
+
 **REFERENCE:**
 
 - https://developer.wordpress.org/block-editor/tutorials/block-tutorial/creating-dynamic-blocks/

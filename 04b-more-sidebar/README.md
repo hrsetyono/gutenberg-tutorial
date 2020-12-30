@@ -4,7 +4,7 @@
   
 **TASK:**
 
-Continuing from Tutorial 01, add these field type in Inspector:
+Create a simple block that has these field type in Inspector. No need to be applied in any part of edit() or save(), just showcase them:
   
 - Textarea
 - Radio
@@ -12,10 +12,13 @@ Continuing from Tutorial 01, add these field type in Inspector:
 - Range
 - Select
   
-No need to be applied in any part of edit() or save(), just showcase them.
 
 ![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch04b-more-sidebar.jpg)
   
+**COMPILING ESNEXT**
+
+Read the README in this repo's root folder.
+
 **REFERENCE:**
 
 - https://rudrastyh.com/gutenberg/inspector-controls.html

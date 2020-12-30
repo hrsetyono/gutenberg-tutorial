@@ -10,6 +10,10 @@ Create a block containing Heading, Paragraph, and Image blocks by default.
 
 ![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch05-nested-block.jpg)
   
+**COMPILING ESNEXT**
+
+Read the README in this repo's root folder.
+
 **REFERENCE:**
 
 - https://developer.wordpress.org/block-editor/tutorials/block-tutorial/nested-blocks-inner-blocks/

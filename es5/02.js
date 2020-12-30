@@ -15,28 +15,32 @@ blocks.registerBlockType( 'my/tut-02', {
   icon: 'book',
   category: 'layout',
 
-  // List of data.
   attributes: {
-    title: { // extract from <h2>
+    // Extract title from <h2>
+    title: { 
       type: 'array',
       source: 'children',
       selector: 'h2'
     },
-    mediaID: { // not extracting from anywhere
+    // since there's no source, this attribute will be saved as JSON comment like this:
+    // <!-- { mediaID: 10 } -->
+    mediaID: {
       type: 'number'
     },
-    mediaURL: { // extract from 'src' attribute of <img>
+    // Extract mediaURL from the `src` attribute of <img>
+    mediaURL: {
       type: 'string',
       source: 'attribute',
       selector: 'img',
       attribute: 'src'
     },
-    ingredients: { // extract from class 'ingredients'
+    // Extract ingredients from the children of class `ingredients`
+    ingredients: {
       type: 'array',
       source: 'children',
       selector: '.ingredients'
     },
-    steps: { // extract from class 'steps'
+    steps: {
       type: 'array',
       source: 'children',
       selector: '.steps'
@@ -57,7 +61,29 @@ blocks.registerBlockType( 'my/tut-02', {
   edit: function( props ) {
     let atts = props.attributes;
     
-    return el( 'div',	{ className: props.className }, // Outer div wrapper
+    /**
+     * First, imagine how you want the HTML output to be.
+     * 
+     * For this tutorial, we want it like this:
+     * 
+     *   <div class="wp-block-my-tut02">
+     *     <h2> Title </h2>
+     *     <figure> <img /> </figure>
+     *     <h3> Ingredients </h3>
+     *     <ul>
+     *       <li> ... </li>
+     *       <li> ... </li>
+     *     </ul>
+     *     <h3> Steps </h3>
+     *     <div>
+     *       <p> ... </p>
+     *       <p> ... </p>
+     *     </div>
+     *   </div>
+     * 
+     * Now we need to translate it to React:
+     */
+    return el( 'div',	{ className: props.className },
       // Recipe title as H2
       el( RichText, {
         tagName: 'h2',
@@ -70,7 +96,7 @@ blocks.registerBlockType( 'my/tut-02', {
       } ),
       
       // Image area
-      el( 'div', { className: 'recipe-image' },
+      el( 'figure', {},
         el( MediaUpload, {
           allowedTypes: 'image',
           value: atts.mediaID,
@@ -82,13 +108,14 @@ blocks.registerBlockType( 'my/tut-02', {
           },
           // Create a button that opens media library when clicked
           render: ( obj ) => {
-            return el( Button,
-              {
-                className: atts.mediaID	? 'button button--transparent' : 'button',
-                onClick: obj.open,
-              },
-              // If Image ID exists, show <img>, otherwise show a text to upload imge.
-              atts.mediaID ? el( 'img', { src: atts.mediaURL } ) : 'Upload Image'
+            let className = atts.mediaID	? 'button button--transparent' : 'button';
+            
+            // If Image ID exists, show <img>, otherwise show a text to upload imge.
+            let buttonContent = atts.mediaID ?
+              el( 'img', { src: atts.mediaURL } ) : 'Upload Image';
+
+            return el( Button, { className: className, onClick: obj.open },
+              buttonContent
             );
           }
         } )
@@ -115,6 +142,7 @@ blocks.registerBlockType( 'my/tut-02', {
       // Create a RichText with DIV as wrapper
       el( RichText, {
         tagName: 'div',
+        multiline: 'p',
         inline: false,
         placeholder: 'Write instructions…',
         value: atts.steps,
@@ -130,16 +158,15 @@ blocks.registerBlockType( 'my/tut-02', {
   // This saved HTML will be used for extracting the attributes
   save: function( props ) {
     let atts = props.attributes;
-
-    return el( 'div',	{ className: props.className },
+    
+    return el( 'div',	{}, // classes from `props.className` will be added automatically
       // Recipe Title
       el( RichText.Content, {
         tagName: 'h2',
         value: atts.title,
       } ),
       // If Image is set
-      atts.mediaURL && el( 'div',
-        { className: 'recipe-image' },
+      atts.mediaURL && el( 'figure', {},
         el( 'img', { src: atts.mediaURL } )
       ),
 

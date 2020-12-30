@@ -105,7 +105,7 @@ blocks.registerBlockType( 'my/tut-04b', {
           el( 'p', {}, 'Multiple Checkboxes' ),
 
           // Loop through an array and create checkbox for each
-          // The triple dot is 'spread operator' which will spread the result into current array
+          // The triple dot is 'spread operator' which will merge the result into current array
           ...[ 'Checkbox 1', 'Checkbox 2', 'Checkbox 3' ].map( ( label ) => {
             return el( CheckboxControl, {
               label: label,

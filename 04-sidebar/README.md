@@ -6,15 +6,19 @@
   
 **TASK:**
 
-Continuing from Tut 02 (yes, ignore Tut 03), add these:
-    
-- A Color Palette to change Title color.
+Continuing from Tut 02, add these:
 
 - A Text field to add label to the top-right of recipe.
 
 - A toggle to enable/disable the Image.
 
+- A Color Palette to change text and background color
+
 ![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch04-custom-sidebar.jpg)
+  
+**COMPILING ESNEXT**
+
+Read the README in this repo's root folder.
   
 **REFERENCE:**
 
