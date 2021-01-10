@@ -1,30 +1,33 @@
-# Tutorial 06b - Dynamic Block Part 2
+# Tutorial 06b - Converting Static to Dynamic Block
 
-> This is a very important tutorial. Do not skip this!
+## Why?
 
-## Why Use Dynamic Block?
+Eventhough a block only has static content, there are some **benefits** of making it rendered via PHP:
 
-For static block, if you changed the HTML markup, it won't change the one already being used.
+1. Easier to update. You can change the HTML markup anytime and it will be applied to all instances.
 
-With dynamic block, you can always update it anytime and every instance will get updated.
+1. Easier to develop. Especially if you're not used to React.
 
-Me personally, never make static block for my client because it often changes depending on their request.
+The downside is obviously heavier performance, but it's not a problem with a good cache.
+
+## When?
+
+Most of the time. Unless you are 100% sure that there won't be any changes in the future.
 
 ## About this Tutorial
   
-- Learn how to transform a block into dynamic block.
+- Learn how to transform a static block into dynamic block.
 
 - Learn how to save RichText content as attribute.
-
-- This is so you can update the markup without breaking the one already in use.
   
 **TASK:**
 
 Transform the Cooking Recipe from Tutorial 02 into dynamic block.
     
-- The first step is to make save() returns null.
+- The first step is to make `save()` returns null.
 
-- Then you need to add code to save RichText content as attribute.
+- Then re-create the `save()` markup in PHP as render callback.
+
 
 **COMPILING ESNEXT**
 

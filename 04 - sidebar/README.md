@@ -1,8 +1,12 @@
-# Tutorial 04 - Custom Inspector
+# Tutorial 04 - Custom Sidebar
 
-Inspector is the sidebar on the right of your editor. We can put many kind of settings on there.
+Sidebar (or more correctly known as Inspector) is the setting area on the right of your editor. We can customize them anyway we like by returning `InspectorControls` element in `edit()`.
+
+Jump straight to `04.js` to see it in action.
 
 ## About this Tutorial
+
+![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch04-custom-sidebar.jpg)
 
 - Learn how to add custom fields in Inspector
 
@@ -17,9 +21,6 @@ Continuing from Tut 02, add these:
 - A toggle to enable/disable the Image.
 
 - A Color Palette to change text and background color
-
-
-![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch04-custom-sidebar.jpg)
 
   
 **COMPILING ESNEXT**

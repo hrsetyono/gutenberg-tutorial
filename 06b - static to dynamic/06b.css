@@ -3,37 +3,52 @@
  * editor-specific styles using the same selectors will take precedence.
  */
 
- .wp-block-my-tut-06b .recipe-image {
+ .wp-block-my-tut-06b {
+	border: 1px solid rgba(0,0,0,.1);
+	padding: 1rem;
+}
+
+.wp-block-my-tut-06b figure {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	background: #f1f1f1;
 	float: right;
 	width: 50%;
 	min-height: 100px;
-	text-align: center;
 }
 
-.wp-block-my-tut-06b .recipe-image button {
+.wp-block-my-tut-06b figure button {
 	margin-top: 30px;
 }
 
-.wp-block-my-tut-06b .recipe-image .button--transparent {
+.wp-block-my-tut-06b figure .button--transparent {
 	margin: 0;
 	padding: 0;
 	display: block;
 	height: auto;
 }
 
-.wp-block-my-tut-06b .recipe-image img {
+.wp-block-my-tut-06b figure img {
 	display: block;
 	z-index: 1;
 	position: relative;
 }
 
-.wp-block-my-tut-06b h2 {
-	font-size: 1.5em;
+.editor-styles-wrapper .wp-block-my-tut-06b h2 {
+	margin-top: 0;
 }
 
 .wp-block-my-tut-06b ul {
 	padding-left: 2.5em !important;
+}
+
+.wp-block-my-tut-06b .block-editor-rich-text__editable p {
+	margin: 0;
+}
+
+.wp-block-my-tut-06b .block-editor-rich-text__editable p + p {
+	margin-top: 0.75rem;
 }
 
 .wp-block-my-tut-06b:after { 

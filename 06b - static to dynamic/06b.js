@@ -6,89 +6,35 @@
 ( function( blocks, editor, element, components ) { 'use strict';
 
 const el = element.createElement;
-const { RichText, MediaUpload, BlockControls, AlignmentToolbar } = editor;
-const { Button, ToolbarGroup, ToolbarButton } = components;
-
+const { RichText, MediaUpload } = editor;
+const { Button } = components;
 
 blocks.registerBlockType( 'my/tut-06b', {
-  title: '06b - Static to Dynamic',
+  title: '06b - Static to Dynamic Block',
+  description: 'This block is rendered via PHP',
   icon: 'book',
   category: 'layout',
 
-  //
+  // Removed all 'source' param so the attribute is saved to the database
   attributes: {
-    title: { type: 'array', source: 'children', selector: 'h2' },
+    title: { type: 'string' }, // RichText become string instead of array
     mediaID: { type: 'number' },
-    mediaURL: { type: 'string', source: 'attribute', selector: 'img', attribute: 'src' },
-    ingredients: { type: 'array', source: 'children', selector: '.ingredients' },
-    steps: { type: 'array', source: 'children', selector: '.steps' },
-
-    // Attributes for toolbar
-    align: { type: 'string', default: 'none' },
-    imagePosition: { type: 'string', default: 'right' }
+    mediaURL: { type: 'string',  },
+    ingredients: { type: 'string' },
+    steps: { type: 'string' },
   },
 
   //
-  example: {
-    attributes: {
-      title: 'Chocolate Chip Cookies',
-      mediaURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2ChocolateChipCookies.jpg/320px-2ChocolateChipCookies.jpg',
-      ingredients: [ 'flour', 'sugar', 'chocolate' ],
-      steps: [	'Mix', 'Bake', 'Enjoy' ],
-      
-      align: 'left',
-      imagePosition: 'right',
-    },
-  },
+  example: {},
 
-  //
+  
+  // This edit() is exactly the same as Tut 02
   edit: function( props ) {
     let atts = props.attributes;
     
     return [
-      // If BlockControls is returned, it will be added to the toolbar
-      el( BlockControls, {},
-
-        // Image position toolbar
-        el( ToolbarGroup, {}, 
-          el( ToolbarButton, {
-            icon: 'align-right', // Icon list https://developer.wordpress.org/resource/dashicons/
-            title: 'Image on Right',
-            className: atts.imagePosition === 'right' ? 'is-pressed' : '', // active state for the buttons
-            onClick: () => {
-              props.setAttributes( { imagePosition: 'right' } );
-            },
-          } ),
-
-          el( ToolbarButton, {
-            icon: 'align-left',
-            title: 'Image on Left',
-            className: atts.imagePosition === 'left' ? 'is-pressed' : '',
-            onClick: () => {
-              props.setAttributes( { imagePosition: 'left' } );
-            },
-          } ),
-        ),
-
-        // Text alignment toolbar
-        el( AlignmentToolbar, {
-          value: atts.align,
-          onChange: ( value ) => {
-            props.setAttributes( { align: value ? value : 'none' } );
-          },
-        } )
-      ),
-
       // BODY
-      el( 'div',
-        {
-          // add extra class name based on selected toolbar
-          className: `${props.className}
-            image-${atts.imagePosition}
-            has-text-align-${atts.align}`
-        },
-
-        // This is the same as Tut 02
+      el( 'div', { className: props.className },
         el( RichText, { tagName: 'h2', inline: true, placeholder: 'Write Recipe title…',
           value: atts.title,
           onChange: value => props.setAttributes( { title: value } )
@@ -121,21 +67,9 @@ blocks.registerBlockType( 'my/tut-06b', {
     ];
   },
 
-  //
+  // Returning null means rendering will be done via PHP
   save: function( props ) {
-    let atts = props.attributes;
-
-    // Add extra class name based on selected toolbar
-    return el( 'div', { className: `image-${atts.imagePosition} has-text-align-${atts.align}` }, 
-
-      // This is the same as Tut 02
-      el( RichText.Content, { tagName: 'h2', value: atts.title } ),
-      atts.mediaURL && el( 'figure', {}, el( 'img', { src: atts.mediaURL } ) ),
-      el( 'h3', {}, 'Ingredients' ),
-      el( RichText.Content, { tagName: 'ul', className: 'ingredients', value: atts.ingredients } ),
-      el( 'h3', {}, 'Instructions' ),
-      el( RichText.Content, { tagName: 'div', className: 'steps', value: atts.steps } )
-    );
+    return null;
   },
 
 } );

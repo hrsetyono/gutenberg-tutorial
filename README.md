@@ -26,8 +26,12 @@ ESNext:
 ## How to Compile ESNext
 
 1. Download and Install [NodeJS](https://nodejs.org/en/).
+
 1. Open command prompt / terminal in this directory and run the command `npm install`.
-1. Run the command `npm run watch`. It will compile `esnext-src/index.js` into `esnext-build/index.js`. Everytime you save any changes, it will automatically re-compile.
+
+1. During development, run the command `npm run watch` to automatically recompile everytime we save any changes.  
+    It will compile `esnext-src/index.js` into `esnext-build/index.js`.
+
 1. After finished developing, run the command `npm run build` to minimize the compiled code.
 
 **Hint**: That command can also compile SASS into CSS. But for simplicity, we're going to use plain CSS.

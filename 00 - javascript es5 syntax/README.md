@@ -2,12 +2,12 @@
 
 ## 1. Let and Const
 
-These two replaces `var`. The differences are:
+These two replace `var`. The differences are:
 
-- `let` is variable that will change.
-- `const` is variable that won't change.
+- `let` is a variable that can change.
+- `const` is a variable that can't change.
 
-By using them, we clearly mark whether a variable is allowed to be changed or not.
+By using them, we mark whether a variable is allowed to be changed or not.
 
 ```js
 let num = 10;
@@ -29,9 +29,9 @@ let arrowFunc = ( num ) => {
 }
 ```
 
-Arrow function is an alternative to the normal function.
+The Arrow function is an alternative to the normal function.
 
-Aside from the syntax, the main differences is that Arrow Function won't change the value of `this`. Normal Function will override `this`.
+Aside from the syntax, the main difference is that Arrow Function won't change the value of `this`. Normal Function will override `this`.
 
 For example, we have this jQuery listener:
 
@@ -42,23 +42,24 @@ $( '.button' ).on( 'click', function( e ) {
 } );
 ```
 
-The value of `this` refers to the callback function. jQuery did a magic to make it refer to the target element.
+The value of `this` refers to the callback function. jQuery did magic to make it refer to the target element.
 
-But the example above won't work if we use Arrow function:
+But the example above won't work if we use the Arrow function:
 
 ```js
 // Error!
 $( '.button' ).on( 'click', ( e ) => {
   $(this).addClass( 'button-active' );
 } );
+```
 
-// Works!
+The value of `this` still refers to the parent scope. So we need to find another way. Luckily, target element can be accessed with `e.currentTarget` as shown below:
+
+```js
 $( '.button' ).on( 'click', ( e ) => {
   $(e.currentTarget).addClass( 'button-active' );
 } );
 ```
-
-The value of `this` still refers to whatever the outside scope is. So we need to find another way. Luckily, target element can be accessed with `e.currentTarget` as shown in the 2nd snippet.
 
 
 ## 3. Arrow Function Shorthand
@@ -90,11 +91,11 @@ let onlyOneLine = num => num *2;
 ```
 
 
-## 4. Destructuring Assigment
+## 4. Destructuring Assignment
 
 Destructuring Assignment is a shortcut to assign part of an Object as variables.
 
-As an example, we will take a look at the Gutenberg's component object. Gutenberg provides many reusable elements such as Button and TextControl (for text input). To use them, we can write it like this:
+As an example, we will take a look at Gutenberg's component object. Gutenberg provides many reusable elements such as Button and TextControl (for text input). To use them, we can write it like this:
 
 ```js
 wp.components.Button
@@ -119,7 +120,7 @@ This limits you to use the same variable name as the object's properties. But th
 
 ## 5. Spread Operator
 
-Spread Operator is a shortcut to merge array with another array.
+Spread Operator is a shortcut to merge an array with another array.
 
 ```js
 let array1 = [ 'item1', 'item2' ];
@@ -134,7 +135,7 @@ This is rarely used, but just letting you know in case you see someone's code th
 
 ## 6. Array Map
 
-Array Map is basically an inline loop. It is shorter and tidier.
+Array Map is an inline loop. It is shorter and tidier.
 
 As an example, we have an array of numbers that need to be squared. With `for` loop, we do it like this:
 
@@ -190,7 +191,7 @@ return el( 'div', { className: 'card' },
 );
 ```
 
-The first parameter of `React.createElement()` is the tag name. Second is attribute, while third and beyond are its children.
+The first parameter of `React.createElement()` is the tag name. The second is an attribute, while the third and beyond are its children.
 
 -----
 

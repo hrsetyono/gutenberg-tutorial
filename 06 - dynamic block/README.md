@@ -27,7 +27,7 @@ register_block_type( 'my/block', [
   'render_callback' => 'render_my_block',
 ] );
 
-function render_my_block( $atts, $inner_blocks = null ) {
+function render_my_block( $atts ) {
   // do something
 
   return 'the HTML markup';
@@ -36,9 +36,39 @@ function render_my_block( $atts, $inner_blocks = null ) {
 
 That's it. You can try `var_dump( $atts )` to see what's inside.
 
-**IMPORTANT:** Default attribute won't appear in `$atts`. This is quite annoying since we need to check each one whether it exists or not.
+**IMPORTANT:** Default attributes won't appear in `$atts`. This is quite annoying since we need to check each one whether it exists or not.
+
+
+## Dynamic Block that has InnerBlocks
+
+If we have InnerBlocks, then our save function should return it's content like this:
+
+```js
+  // ES5
+  save: ( props ) => {
+    return el( InnerBlocks.Content );
+  }
+
+  // ESNext
+  save: ( props ) => {
+    return <InnerBlocks.Content />
+  }
+```
+
+Then it will be available as 2nd param of the render callback:
+
+```php
+function render_my_block( $atts, $inner_blocks ) {
+  // do something
+
+  return 'the HTML markup';
+}
+```
+
 
 ## About this Tutorial
+
+![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch06-dynamic-block.jpg)
 
 - Learn how to make a block where the HTML markup is dynamic like Latest Posts.
 
@@ -49,8 +79,6 @@ That's it. You can try `var_dump( $atts )` to see what's inside.
 Create a block to show latest X posts of selected category. Use `<select>` and `<input type="number">`
 
 To make it dynamic, make `save()` returns null.
-
-![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch06-dynamic-block.jpg)
 
 **COMPILING ESNEXT**
 

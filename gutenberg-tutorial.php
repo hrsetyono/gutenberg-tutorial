@@ -14,8 +14,8 @@
 if( !defined( 'WPINC' ) ) { die; } // exit if accessed directly
 
 // Choose one:
-add_action( 'enqueue_block_editor_assets', 'gutenberg_tutorial_enqueue_es5', 100 );
-// add_action( 'enqueue_block_editor_assets', 'gutenberg_tutorial_enqueue_esnext', 100 );
+// add_action( 'enqueue_block_editor_assets', 'gutenberg_tutorial_enqueue_es5', 100 );
+add_action( 'enqueue_block_editor_assets', 'gutenberg_tutorial_enqueue_esnext', 100 );
 
 add_filter( 'safe_style_css', 'gutenberg_tutorial_allow_css_var' );
 add_action( 'init', 'setup_dynamic_block_render' );
@@ -34,7 +34,7 @@ function gutenberg_tutorial_enqueue_es5() {
     '04b' => '04b - more sidebar',
     '05' => '05 - nested blocks',
     '06' => '06 - dynamic block',
-    '06b' => '06 - dynamic block pt2'
+    '06b' => '06b - static to dynamic'
   ];
 
   foreach( $blocks as $name => $dir ) {
@@ -79,6 +79,10 @@ function gutenberg_tutorial_allow_css_var() {
  * @action init
  */
 function setup_dynamic_block_render() {
+  require_once '06 - dynamic block/render.php';
+  require_once '06b - static to dynamic/render.php';
+  require_once '07 - link popup/render.php';
+
   register_block_type( 'my/tut-06', [
     'render_callback' => 'render_tut06',
   ] );
@@ -86,42 +90,8 @@ function setup_dynamic_block_render() {
   register_block_type( 'my/tut-06b', [
     'render_callback' => 'render_tut06b',
   ] );
-}
 
-/**
- * Callback for rendering Tut 06
- */
-function render_tut06( $atts, $inner_blocks = null ) {
-  // prevent loading in Editor screen
-  if( function_exists( 'get_current_screen' ) ) { return; }
-
-  $posts = get_posts([
-    'cat' => $atts['selectedCategory'],
-    'posts_per_page' => $atts['postsPerPage'],
-  ]);
-
-  $content = '';
-
-  // Loop all posts
-  foreach( $posts as $p ) {
-    $title = $p->post_title;
-    $excerpt = $p->post_excerpt;
-    $permalink = get_permalink( $p );
-    $thumbnail = get_the_post_thumbnail( $p, 'thumbnail' );
-
-    $content .= "<div class='post-thumb'>
-      <h2> <a href='{$permalink}'> {$title} </a></h2>
-      {$thumbnail}
-      <p>{$excerpt}</p>
-    </div>";
-  }
-
-  return $content;
-}
-
-/**
- * Callback for rendering Tut 06b
- */
-function render_tut06b( $atts, $inner_blocks = null ) {
-
+  register_block_type( 'my/tut-07', [
+    'render_callback' => 'render_tut07',
+  ] );
 }
