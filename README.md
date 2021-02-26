@@ -42,52 +42,48 @@ ESNext:
 
 ![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch02-multiple-richtext.jpg)
 
-- **[Tutorial 0](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/00-javascript-es5) - JavaScript ES5 Syntax (Optional)**
+- **[Tutorial 0](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/00%20-%20javascript%20es5%20syntax) - JavaScript ES5 Syntax (Optional)**
 
   If you are not too familiar with the new JavaScript syntax, start here.
 
-- **[Tutorial 01](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/01-single-field) - Single Field**
+- **[Tutorial 01](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/01%20-%20single%20field) - Single Field**
 
     Create a block containing a single input field with rich formatting.
 
-- **[Tutorial 02](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/02-multiple-fields) - Multiple Fields**
+- **[Tutorial 02](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/02%20-%20multiple%20fields) - Multiple Fields**
 
     Make a block for Cooking Recipe with 4 fields: Title, Image, Ingredients, and Steps.
 
-- **[Tutorial 03](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/03-toolbar) - Custom Toolbar**
+- **[Tutorial 03](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/03%20-%20toolbar) - Custom Toolbar**
 
     Learn how to add custom buttons into the Toolbar.
 
-- **[Tutorial 04](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/04-sidebar) - Custom Sidebar (Inspector)**
+- **[Tutorial 04](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/04%20-%20sidebar) - Custom Sidebar (Inspector)**
 
     Learn about adding field and buttons into the Sidebar.
 
-- **[Tutorial 04b](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/04b-more-sidebar) - More Inspector Controls**
+- **[Tutorial 04b](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/04b%20-%20more%20sidebar) - More Inspector Controls**
 
     Learn about various type of built-in controls:
 
-- **[Tutorial 05](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/05-nested-blocks) - Nested Blocks**
+- **[Tutorial 05](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/05%20-%20nested%20blocks) - Nested Blocks**
 
     Create a block containing Heading, Paragraph, and Image blocks by default.
 
-- **[Tutorial 06](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/06-dynamic-block) - Dynamic Block**
+- **[Tutorial 06](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/06%20-%20dynamic%20block) - Dynamic Block**
 
     Create a block to show latest X posts of selected category.
 
-- **[Tutorial 06b](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/06b-dynamic-block-pt2) - Dynamic Block (Part 2)**
+- **[Tutorial 06b](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/06b%20-%20static%20to%20dynamic) - Static to Dynamic**
 
     Transform the Cooking Recipe from Tutorial 02 into dynamic block.
 
-- **[Tutorial 07](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/07-using-webpack) - Using Webpack**
+- **[Tutorial 07](https://github.com/hrsetyono/gutenberg-tutorial/tree/master/07%20-%20link%20popup) - Link Popup**
 
-    Use Webpack to compile the React script
-
-- **Tutorial 08 - Link and Popup**
-
-    Coming soon
+    Create a Popup to add link
 
 -----
 
-> If you spot a mistake or want to request a topic, let me know in [Issues](https://github.com/hrsetyono/wp-blocks-tutorial/issues)
+> If you spot a mistake or want to request a topic, let me know in [Issues](https://github.com/hrsetyono/gutenberg-tutorial/issues)
 
 > Learn more about Wordpress at our tutorial site: [wpTips.dev](https://wptips.dev)
