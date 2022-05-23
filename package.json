@@ -2,12 +2,35 @@
   "name": "gutenberg-tutorial",
   "private": true,
   "author": "Henner Setyono (https://pixelstudio.id)",
+  "dependencies": {
+    "@wordpress/components": "^11.1.1"
+  },
   "devDependencies": {
-    "@wordpress/components": "^11.1.1",
-    "@wordpress/scripts": "^12.5.0"
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@wordpress/scripts": "^12.5.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.1.0",
+    "css-loader": "^4.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-react": "^7.30.0",
+    "mini-css-extract-plugin": "^0.11.2",
+    "sass-loader": "^10.0.2",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   },
   "scripts": {
-    "watch": "wp-scripts start esnext-src/index.js --output-path=esnext-build",
-    "build": "wp-scripts build esnext-src/index.js --output-path=esnext-build"
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development --watch"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@wordpress/babel-preset-default"
+    ]
   }
 }

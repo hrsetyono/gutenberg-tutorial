@@ -11,35 +11,35 @@ By using them, we mark whether a variable is allowed to be changed or not.
 
 ```js
 let num = 10;
-const INDEX = 1;
+const index = 1;
 
 num += 5; // works
-INDEX += 1; // error!
+index += 1; // error!
 ```
 
 ## 2. Arrow Function
 
+It's a cleaner syntax of writing function:
+
 ```js
-let normalFunc = function( num ) {
+const normalFunc = function(num) {
   // do something
 }
 
-let arrowFunc = ( num ) => {
+const arrowFunc = (num) => {
   // do something
 }
 ```
 
-The Arrow function is an alternative to the normal function.
-
-Aside from the syntax, the main difference is that Arrow Function won't change the value of `this`. Normal Function will override `this`.
+The main difference is that Arrow Function won't change the value of `this`. Normal Function will override `this`.
 
 For example, we have this jQuery listener:
 
 ```js
 // Works!
-$( '.button' ).on( 'click', function( e ) {
-  $(this).addClass( 'button-active' );
-} );
+$('.button').on('click', function(e) {
+  $(this).addClass('button-active');
+});
 ```
 
 The value of `this` refers to the callback function. jQuery did magic to make it refer to the target element.
@@ -48,119 +48,148 @@ But the example above won't work if we use the Arrow function:
 
 ```js
 // Error!
-$( '.button' ).on( 'click', ( e ) => {
-  $(this).addClass( 'button-active' );
-} );
+$('.button').on('click', (e) => {
+  $(this).addClass('button-active');
+});
 ```
 
 The value of `this` still refers to the parent scope. So we need to find another way. Luckily, target element can be accessed with `e.currentTarget` as shown below:
 
 ```js
-$( '.button' ).on( 'click', ( e ) => {
-  $(e.currentTarget).addClass( 'button-active' );
-} );
+$('.button').on('click', (e) => {
+  $(e.currentTarget).addClass('button-active');
+});
 ```
-
 
 ## 3. Arrow Function Shorthand
 
-Across this tutorial, you will see many shortened Arrow functions.
+If the function body is a return and only 1 liner, you can remove the curly braces and inline it like this:
 
-If it only has 1 parameter, you can remove the parentheses:
-
-```js
-let onlyOneParam = ( num ) => {
-}
-
-// become
-
-let onlyOneParam = num => {
-}
-```
-
-If the function body is only a 1 liner, you can remove the curly braces and inline it. You can also omit the `return`:
 
 ```js
-let onlyOneLine = num => {
+// from this:
+let onlyOneLine = (num) => {
   return num * 2;
 }
 
-// become
-
-let onlyOneLine = num => num *2;
+// become this:
+let onlyOneLine = (num) => num * 2;
 ```
-
 
 ## 4. Destructuring Assignment
 
-Destructuring Assignment is a shortcut to assign part of an Object as variables.
+Destructuring Assignment is a shortcut to assign part of an Object into variables.
 
-As an example, we will take a look at Gutenberg's component object. Gutenberg provides many reusable elements such as Button and TextControl (for text input). To use them, we can write it like this:
+This is very useful when using modules such as Gutenberg.
+
+Gutenberg provides reusable elements under the `wp` global variable. For example if you need a button, you write this:
 
 ```js
-wp.components.Button
+wp.element.createElement(wp.components.Button, {});
+
+wp.element.createElement(wp.components.TextControl, {});
 ```
 
-That's quite wordy right? Some of you might think to assign it into variable like this:
+That's quite wordy right? You might re-assign them like this:
 
-```
+```js
+const createElement = wp.element.createElement;
 const Button = wp.components.Button;
 const TextControl = wp.components.TextControl;
-const SelectControl = wp.components.SelectControl;
+
+createElement(Button, {});
+createElement(TextControl, {});
 ```
 
-That's too much repetition! But ES5 syntax added a way to solve that:
+That is the right step and destructuring is a shorthand for that which looks like this:
 
 ```js
-const { Button, TextControl, SelectControl } = wp.components;
+const { createElement } = wp.element;
+const { Button, TextControl } = wp.components;
+
+createElement(Button, {});
+createElement(TextControl, {});
 ```
 
-This limits you to use the same variable name as the object's properties. But that's fine.
+Destructuring forces you to use the same name as the Object's property. So if you need different name, use the old method:
 
+```js
+const el = wp.element.createElement;
+const { Button, TextControl } = wp.components;
+
+el(Button, {});
+el(TextControl, {});
+```
 
 ## 5. Spread Operator
 
-Spread Operator is a shortcut to merge an array with another array.
+Spread Operator is a shortcut to merge arrays or objects:
 
 ```js
-let array1 = [ 'item1', 'item2' ];
-let array2 = [ 'item3', ...array1, 'item4' ];
+const array1 = [ 'item1', 'item2' ];
+const array2 = [ 'item3', 'item4' ];
 
+console.log([ ...array1, ...array2 ]);
+// [ 'item1', 'item2', 'item3', 'item4' ];
 
-console.log( array2 );
-// [ 'item3', 'item1', 'item2', 'item4' ];
+const obj1 = { a: 1, b: 2 };
+const obj2 = { b: 3, c: 4 };
+
+console.log({ ...obj1, ...obj2 });
+// { a: 1, b: 3, c: 4 }
 ```
 
-This is rarely used, but just letting you know in case you see someone's code that has it.
-
-## 6. Array Map
-
-Array Map is an inline loop. It is shorter and tidier.
-
-As an example, we have an array of numbers that need to be squared. With `for` loop, we do it like this:
+This is a modern way to merge object, previously we used `Object.assign`:
 
 ```js
-let nums = [ 1, 2, 3, 4 ];
-let numsSquared = [];
+const obj1 = { a: 1, b: 2 };
+const obj2 = { b: 3, c: 4 };
 
-for( let n of nums ) {
-  numSquared.push( n * n );
-}
+console.log(Object.assign({}, obj1, obj2));
+// { a: 1, b: 3, c: 4 }
 ```
 
-Array Map can achieve the same thing like this:
+## 6. Functional Loop
+
+This is a relatively new addition to JavaScript. Instead of using `for` loop, you have these built-in functions:
+
+- map
+- filter
+- reduce
+- find
+- findIndex
+- forEach
+
+### map()
+
+Iterate over the array and apply the modifier:
 
 ```js
-let nums = [ 1, 2, 3, 4 ];
-let numsSquared = nums.map( ( n ) => {
+const nums = [ 1, 2, 3, 4 ];
+const numsSquared = nums.map((n) => {
   return n * n;
-} );
+});
 
-// or if using shortened arrow function:
-
-let numsSquared = nums.map( n => n * n );
+console.log(numsSquared);
+// [ 1, 4, 9, 16 ]
 ```
 
+### reduce()
+
+Iterate over the array to get a single result:
+
+```js
+const nums = [ 1, 2, 3, 4 ];
+const numsSummed = nums.reduce((result, n) => {
+  result += n;
+  return result;
+}, 0);
+
+console.log(numsSummed);
+// 10
+```
+
+You can read the rest at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 ## 7. Short Intro to React Elements
 
@@ -185,13 +214,11 @@ let title = 'Hello World';
 let description = 'Lorem ipsum dolor sit amet';
 
 // Native JS syntax
-return el( 'div', { className: 'card' },
-  el( 'h2', {}, title ),
-  el( 'p', {}, description )
+return el('div', { className: 'card' },
+  el('h2', {}, title),
+  el('p', {}, description),
 );
 ```
-
-The first parameter of `React.createElement()` is the tag name. The second is an attribute, while the third and beyond are its children.
 
 -----
 

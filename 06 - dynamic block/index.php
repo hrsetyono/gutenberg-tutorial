@@ -1,10 +1,16 @@
 <?php
+if (!defined('WPINC')) { die; } // exit if accessed directly
+
+register_block_type('my/tut-06', [
+  'render_callback' => 'my_render_tut06',
+]);
+
 /**
  * Callback for rendering Tut 06
  */
-function render_tut06( $atts ) {
+function my_render_tut06( $atts ) {
   // prevent loading in Editor screen
-  if( function_exists( 'get_current_screen' ) ) { return; }
+  if (function_exists('get_current_screen')) { return; }
 
   $selected_category = $atts['selectedCategory'] ?? null;
   $posts_per_page = $atts['postsPerPage'] ?? 3;

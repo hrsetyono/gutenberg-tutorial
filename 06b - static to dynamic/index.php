@@ -1,10 +1,15 @@
 <?php
+if (!defined('WPINC')) { die; } // exit if accessed directly
+
+register_block_type('my/tut-06b', [
+  'render_callback' => 'my_render_tut06b',
+]);
 
 /**
  * Callback for rendering Tut 06b
  */
-function render_tut06b( $atts ) {
-  if( function_exists( 'get_current_screen' ) ) { return; }
+function my_render_tut06b( $atts ) {
+  if (function_exists('get_current_screen')) { return; }
 
   $class_name = 'wp-block-my-tut-06b ' . $atts['className'];
   $title = $atts['title'] ?? '';
