@@ -191,7 +191,29 @@ console.log(numsSummed);
 
 You can read the rest at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
-## 7. Short Intro to React Elements
+## 7. Template Strings
+
+Old way of combining strings:
+
+```js
+var name = 'John';
+var job = 'Web Developer';
+
+console.log('Hello, my name is ' + name + ' and my job is ' + job);
+```
+
+New way using template strings (use the backtick on the left of [1] key):
+
+```js
+const name = 'John';
+const job = 'Web Developer';
+
+console.log(`Hello, my name is ${name} and my job is ${job}`);
+```
+
+It supports multiline too!
+
+## 8. Short Intro to React Elements
 
 React is meant to be used with a compiler because it uses ESNext syntax which combined HTML and JS like this:
 

@@ -8,7 +8,7 @@
  * License: MIT
  * Author: Pixel Studio
  * Author URI: https://pixelstudio.id
- * Version: 1.2.0
+ * Version: 2.0.0
  */
 
 if (!defined('WPINC')) { die; } // exit if accessed directly
@@ -28,15 +28,15 @@ function gutenberg_tutorial_enqueue_es5() {
   $blocks = [
     '01' => '01 - single field',
     '02' => '02 - multiple fields',
-    // '03' => '03 - toolbar',
-    // '04' => '04 - sidebar',
-    // '04b' => '04b - more sidebar',
-    // '05' => '05 - nested blocks',
-    // '06' => '06 - dynamic block',
-    // '06b' => '06b - static to dynamic'
+    '03' => '03 - toolbar',
+    '04' => '04 - sidebar',
+    '04b' => '04b - more sidebar',
+    '05' => '05 - nested blocks',
+    '06' => '06 - dynamic block',
+    '06b' => '06b - static to dynamic'
   ];
 
-  // wp_enqueue_script('htm', plugin_dir_url(__FILE__) . 'dist/htm.js', [] , null, true);
+  wp_enqueue_script('htm', plugin_dir_url(__FILE__) . 'dist/htm.js', [] , null, true);
 
   foreach ($blocks as $name => $path) {
     // If this code is in Theme, replace `plugin_dir_url(__FILE__)` with `get_stylesheet_directory_uri()`
@@ -56,13 +56,13 @@ function gutenberg_tutorial_enqueue_esnext() {
   $blocks = [
     '01',
     '02',
-    // '03',
-    // '04',
-    // '04b',
-    // '05',
-    // '06',
-    // '06b',
-    // '07',
+    '03',
+    '04',
+    '04b',
+    '05',
+    '06',
+    '06b',
+    '07',
   ];
 
   $dir = plugin_dir_url(__FILE__) . 'dist';

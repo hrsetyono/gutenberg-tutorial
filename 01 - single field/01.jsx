@@ -11,6 +11,7 @@ registerBlockType('my/tut-01', {
   title: '01 - Single Field',
   icon: 'book',
   category: 'layout',
+  example: {},
 
   // Attribute is a value that you can pass on to HTML markup. It automatically gets updated when the value changes.
   attributes: {
@@ -18,13 +19,6 @@ registerBlockType('my/tut-01', {
       type: 'array',
       source: 'children', // if an attribute has 'source', it will extract the value from saved HTML markup
       selector: 'p', // take the chilren of 'p'
-    },
-  },
-
-  // This value will be used for Preview when selecting block
-  example: {
-    attributes: {
-      content: 'Hello world',
     },
   },
 

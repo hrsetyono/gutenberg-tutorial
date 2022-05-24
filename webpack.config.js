@@ -7,13 +7,13 @@ const outputPath = 'dist';
 const entryPoints = {
   '01': './01 - single field/01.jsx',
   '02': './02 - multiple fields/02.jsx',
-  // '03': './03 - toolbar/03.jsx',
-  // '04': './04 - sidebar/04.jsx',
-  // '04b': './04b - more sidebar/04b.jsx',
-  // '05': './05 - nested blocks/05.jsx',
-  // '06': './06 - dynamic block/06.jsx',
-  // '06b': './06b - static to dynamic/06b.jsx',
-  // '07': './07 - link popup/07.jsx',
+  '03': './03 - toolbar/03.jsx',
+  '04': './04 - sidebar/04.jsx',
+  '04b': './04b - more sidebar/04b.jsx',
+  '05': './05 - nested blocks/05.jsx',
+  '06': './06 - dynamic block/06.jsx',
+  '06b': './06b - static to dynamic/06b.jsx',
+  '07': './07 - link popup/07.jsx',
 };
 
 module.exports = {

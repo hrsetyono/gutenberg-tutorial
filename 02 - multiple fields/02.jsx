@@ -75,10 +75,10 @@ registerBlockType('my/tut-02', {
     return (
       <div className={props.className}>
         <RichText
+          value={atts.title}
           tagName="h2"
           inline="true"
           placeholder="Write Recipe title…"
-          value={atts.title}
           onChange={(value) => {
             props.setAttributes({ title: value });
           }}
@@ -86,8 +86,8 @@ registerBlockType('my/tut-02', {
 
         <figure>
           <MediaUpload
-            allowedTypes="image"
             value={atts.mediaID}
+            allowedTypes="image"
             onSelect={(media) => {
               props.setAttributes({ mediaURL: media.url, mediaID: media.id });
             }}
@@ -117,11 +117,11 @@ registerBlockType('my/tut-02', {
 
         {/* Create a RichText with UL as wrapper and all its children uses LI */}
         <RichText
+          value={atts.ingredients}
           tagName="ul"
           multiline="li"
           className="ingredients"
           placeholder="Write a list of ingredients…"
-          value={atts.ingredients}
           onChange={(value) => {
             props.setAttributes({ ingredients: value });
           }}
@@ -132,11 +132,11 @@ registerBlockType('my/tut-02', {
 
         {/* Create a RichText with DIV as wrapper */}
         <RichText
+          value={atts.steps}
           tagName="div"
           multiline="p"
           inline="false"
           placeholder="Write instructions…"
-          value={atts.steps}
           onChange={(value) => {
             props.setAttributes({ steps: value });
           }}
@@ -165,16 +165,16 @@ registerBlockType('my/tut-02', {
 
         <h3> Ingredients </h3>
         <RichText.Content
+          value={atts.ingredients}
           tagName="ul"
           className="ingredients"
-          value={atts.ingredients}
         />
 
         <h3> Instructions </h3>
         <RichText.Content
+          value={atts.steps}
           tagName="div"
           className="steps"
-          value={atts.steps}
         />
       </div>
     );

@@ -1,40 +1,88 @@
 # WP Gutenberg Development Tutorial
 
-Learn how to make custom block from the very basic!
+Learn how to make a custom Gutenberg block from scratch!
 
-This is a working plugin. You can activate it on your site and test it.
+This is a working WordPress plugin. You can activate it on your site and test it.
 
-We made two versions of JavaScript in each chapter: **ES5** (no compilation needed) and **ESNext** (need to compile).
+We made three versions of each chapter:
+
+1. **Plain JS** - no compilation needed and only using Gutenberg library.
+1. **JS with HTM** - Using HTM Library to write React template with string literal.
+1. **JSX** - need to compile using node packages.
 
 > This tutorial is sponsored by [wpTips.dev](https://wptips.dev) - WordPress tutorials for developer.
 
-## ES5 vs ESNext
+## Differences Between Versions
 
-ES5:
+The main difference is how you write the React template. Here's an overview of each:
 
-- (Pro) Easier to get started. Doesn't need to install anymore thing in your computer.
-- (Con) The code tends to be messier.
-- (Con) Harder to troubleshoot because the code you found online is more likely to use ESNext.
+**Plain JS**:
 
-ESNext:
+```js
+const el = window.wp.element.createElement;
 
-- (Pro) Simpler codebase and easier to develop.
+return (
+  el(RichText, {
+    tagName:"h2",
+    value: atts.content,
+  })
+);
+```
+
+**JS with HTM**:
+
+```js
+const html = window.htm.bind(window.wp.element.createElement);
+
+return html`
+  <${RichText}
+    tagName="h2"
+    value=${atts.content}
+  />
+`;
+```
+
+**JSX**:
+
+```js
+return (
+  <RichText
+    tagName="h2"
+    value={atts.content}
+  />
+);
+```
+
+## Which One is the Best?
+
+In my opinion, the choice is **either HTM or JSX**. Plain JS is a mess when you have lots of elements.
+
+Here are the pros and cons of them:
+
+**HTM:**
+
+- (Pro) Easier to get started. Doesn't need to install any additional software.
+- (Con) Harder to debug since the error console can't detect which line is problematic.
+- (Con) Harder to find information online since most of them are using JSX.
+
+JSX:
+
+- (Pro) Simpler, cleaner, and lighter (minified) code.
+- (Pro) Can support older browser after compiled.
 - (Pro) More commonly used in Gutenberg community compared to ES5.
 - (Con) Can take a while to setup, especially if you're not familiar with NPM.
 
+In conclusion, it's about speed and scale of the project.
 
-## How to Compile ESNext
+## How to Compile JSX
 
 1. Download and Install [NodeJS](https://nodejs.org/en/).
 
 1. Open command prompt / terminal in this directory and run the command `npm install`.
 
-1. During development, run the command `npm run watch` to automatically recompile everytime we save any changes.  
-    It will compile `esnext-src/index.js` into `esnext-build/index.js`.
+1. During development, run the command `npm run dev` to automatically recompile everytime we save any changes.
 
 1. After finished developing, run the command `npm run build` to minimize the compiled code.
-
-**Hint**: That command can also compile SASS into CSS. But for simplicity, we're going to use plain CSS.
 
 -----
 

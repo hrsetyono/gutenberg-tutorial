@@ -3,8 +3,9 @@
  *
  * Check out the README in this folder for details
  */
+/* eslint-disable indent */
 (() => {
-  const el = window.wp.element.createElement;
+  const html = window.htm.bind(window.wp.element.createElement);
   const { registerBlockType } = window.wp.blocks;
   const { SelectControl, __experimentalNumberControl } = window.wp.components;
   const { apiFetch } = window.wp;
@@ -43,40 +44,38 @@
         return 'No categories found, please add some';
       }
 
-      return el(
-        'div',
-        { className: props.className },
-        // Category select
-        el(SelectControl, {
-          value: atts.selectedCategory,
-          label: 'Post Category',
-          options: [
-            { label: 'Select a Category', value: '' },
-            // loop through categories and create the options format
-            // the triple dots is to merge this with the array
-            ...atts.categories.map((category) => {
-              const { name, id } = category;
-              return {
-                label: name,
-                value: id,
-              };
-            }),
-          ],
-          onChange: (value) => {
-            props.setAttributes({ selectedCategory: value });
-          },
-        }),
-
-        // Input for postsPerPage
-        el(NumberControl, {
-          value: atts.postsPerPage,
-          label: 'Posts per Page',
-          placeholder: 'Enter number of posts',
-          onChange: (value) => {
-            props.setAttributes({ postsPerPage: value });
-          },
-        }),
-      );
+      return html`
+        <div className=${props.className}>
+          <${SelectControl}
+            value=${atts.selectedCategory}
+            label="Post Category"
+            options=${[
+              { label: 'Select a Category', value: '' },
+              // loop through categories and create the options format
+              // the triple dots is to merge this with the array
+              ...atts.categories.map((category) => {
+                const { name, id } = category;
+                return {
+                  label: name,
+                  value: id,
+                };
+              }),
+            ]}
+            onChange=${(value) => {
+              props.setAttributes({ selectedCategory: value });
+            }}
+          />
+  
+          <${NumberControl}
+            value=${atts.postsPerPage}
+            label="Posts per Page"
+            placeholder="Enter number of posts"
+            onChange=${(value) => {
+              props.setAttributes({ postsPerPage: value });
+            }}
+          />
+        </div>
+      `;
     },
 
     /**

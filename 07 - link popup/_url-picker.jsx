@@ -1,3 +1,7 @@
+/**
+ * Copied from https://github.com/WordPress/gutenberg/tree/master/packages/block-library/src/button
+ */
+
 import { __ } from '@wordpress/i18n';
 
 import { useState } from '@wordpress/element';
