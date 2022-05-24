@@ -84,6 +84,19 @@ In conclusion, it's about speed and scale of the project.
 
 1. After finished developing, run the command `npm run build` to minimize the compiled code.
 
+## Enqueuing HTM Library
+
+If you want to use HTM, don't forget to enqueue the library. You can find it in `/dist/htm.js`.
+
+```php
+add_action('enqueue_block_editor_assets', 'my_enqueue_htm');
+
+function my_enqueue_htm() {
+  $dir = get_stylesheet_directory_uri();
+  wp_enqueue_script('htm', $dir . '/js/htm.js', [] , null, true);
+}
+```
+
 -----
 
 # Table of Content
