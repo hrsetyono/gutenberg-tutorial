@@ -6,8 +6,8 @@ This is a working WordPress plugin. You can activate it on your site and test it
 
 We made three versions of each chapter:
 
-1. **Plain JS** - no compilation needed and only using Gutenberg library.
-1. **JS with HTM** - Using HTM Library to write React template with string literal.
+1. **Plain JS** - No compilation needed and only using Gutenberg library.
+1. **JS with HTM** - No compilation needed but using HTM Library to write React template with string concatenation.
 1. **JSX** - need to compile using node packages.
 
 > This tutorial is sponsored by [wpTips.dev](https://wptips.dev) - WordPress tutorials for developer.
