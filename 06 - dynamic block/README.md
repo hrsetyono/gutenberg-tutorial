@@ -23,21 +23,31 @@ registerBlockType({
 Now we need to specify how to render it in PHP:
 
 ```php
-register_block_type( 'my/block', [
+register_block_type('my/block', [
   'render_callback' => 'render_my_block',
-] );
+]);
 
-function render_my_block( $atts ) {
+function render_my_block($atts) {
   // do something
 
   return 'the HTML markup';
 }
 ```
 
-That's it. You can try `var_dump( $atts )` to see what's inside.
+That's it. You can try `var_dump($atts)` to see what's inside the attributes.
 
-**IMPORTANT:** Default attributes won't appear in `$atts`. This is quite annoying since we need to check each one whether it exists or not.
+**IMPORTANT:** Default attributes won't appear in `$atts`. This means you need to reassign default value like this:
 
+```php
+function render_my_block($atts) {
+  $atts = wp_parse_args($atts, [
+    'att1' => 'default value 1',
+    'att2' => 'default value 2'
+  ]);
+
+  return 'the HTML markup';
+}
+```
 
 ## Dynamic Block that has InnerBlocks
 
@@ -45,12 +55,12 @@ If we have InnerBlocks, then our save function should return it's content like t
 
 ```js
   // ES5
-  save: ( props ) => {
-    return el( InnerBlocks.Content );
+  save: (props) => {
+    return el(InnerBlocks.Content);
   }
 
   // ESNext
-  save: ( props ) => {
+  save: (props) => {
     return <InnerBlocks.Content />
   }
 ```
@@ -58,7 +68,7 @@ If we have InnerBlocks, then our save function should return it's content like t
 Then it will be available as 2nd param of the render callback:
 
 ```php
-function render_my_block( $atts, $inner_blocks ) {
+function render_my_block($atts, $inner_blocks) {
   // do something
 
   return 'the HTML markup';

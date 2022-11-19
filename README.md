@@ -20,6 +20,7 @@ The main difference is how you write the React template. Here's an overview of e
 
 ```js
 const el = window.wp.element.createElement;
+const { RichText } = window.wp.blockEditor;
 
 return (
   el(RichText, {
@@ -33,6 +34,7 @@ return (
 
 ```js
 const html = window.htm.bind(window.wp.element.createElement);
+const { RichText } = window.wp.blockEditor;
 
 return html`
   <${RichText}
@@ -45,6 +47,8 @@ return html`
 **JSX**:
 
 ```js
+import { RichText } from '@wordpress/block-editor';
+
 return (
   <RichText
     tagName="h2"

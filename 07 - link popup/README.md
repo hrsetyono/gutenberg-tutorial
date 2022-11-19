@@ -1,18 +1,18 @@
 # Tutorial 7 - Link Popup
 
-Advanced things in Gutenberg are hard to find online. It's mostly because the terminology isn't well known and not many blogs are covering it.
-
-For example how do you make a Link Popup? (as used in Button block). I recently needed to do that and almost gave up trying.
-
-I suddenly thought of checking the source code of Button block itself. So I downloaded [Gutenberg repo](https://github.com/WordPress/gutenberg) and finally found how to do it.
-
-In this tutorial, I will share my finding.
+![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch07-link-popup.jpg)
 
 > **Important**: As this tutorial is quite complex, we are not providing the ES5 version.
 
-## About this Tutorial
+Advanced things in Gutenberg are hard to find online. It's mostly because the terminology isn't well known and not many blogs are covering it.
 
-![](https://raw.github.com/hrsetyono/cdn/master/blocks-tutorial/ch07-link-popup.jpg)
+For example how do you make a **Link Popup**? At the time of writing, Google doesn't help.
+
+So I downloaded [Gutenberg repo](https://github.com/WordPress/gutenberg) and checked the [Core Button block](https://github.com/WordPress/gutenberg/tree/master/packages/block-library/src/button)
+
+You will see how they implement the Link Popup.
+
+## About this Tutorial
 
 - Learn how to create JS Module.
 

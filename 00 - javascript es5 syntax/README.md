@@ -42,7 +42,7 @@ $('.button').on('click', function(e) {
 });
 ```
 
-The value of `this` refers to the callback function. jQuery did magic to make it refer to the target element.
+The value of `this` refers to the  did magiccallback function. jQuery to make it refer to the target element.
 
 But the example above won't work if we use the Arrow function:
 
@@ -63,7 +63,7 @@ $('.button').on('click', (e) => {
 
 ## 3. Arrow Function Shorthand
 
-If the function body is a return and only 1 liner, you can remove the curly braces and inline it like this:
+If the function iss only 1 line and it's a return statement, you can remove the curly braces and inline it like this:
 
 
 ```js
@@ -101,7 +101,7 @@ createElement(Button, {});
 createElement(TextControl, {});
 ```
 
-That is the right step and destructuring is a shorthand for that which looks like this:
+That is the right step, you can shortened them further with Destructuring:
 
 ```js
 const { createElement } = wp.element;

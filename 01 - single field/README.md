@@ -5,25 +5,28 @@ In our first tutorial we will make a custom text field in Gutenberg.
 First step is to enqueue a JavaScript file. So put this into `functions.php`:
 
 ```php
-add_action( 'enqueue_block_editor_assets', 'my_custom_blocks', 100 );
+add_action('enqueue_block_editor_assets', 'my_custom_blocks', 100);
 
 function my_custom_blocks() {
-  // If this code is in Theme, replace `plugin_dir_url(__FILE__)` with `get_stylesheet_directory_uri()`
-  $js_dir = plugin_dir_url( __FILE__ ) . 'assets/js';
-  $css_dir = plugin_dir_url( __FILE__ ) . 'assets/css';
+  $js_dir = plugin_dir_url(__FILE__) . 'assets/js';
+  $css_dir = plugin_dir_url(__FILE__) . 'assets/css';
+
+  // If this code is inside a theme, use `get_stylesheet_directory_uri()` instead
+  // $js_dir = get_stylesheet_directory_uri() . '/assets/js';
+  // $css_dir = get_stylesheet_directory_uri() . '/assets/css';
 
   // Register all the CSS and JS
-  wp_enqueue_script( "my-block", $js_dir . '/my-block.js', [ 'wp-blocks', 'wp-dom' ] , null, true );
-  wp_enqueue_style( "my-block", $css_dir . '/my-block.css', [ 'wp-edit-blocks' ] );
+  wp_enqueue_script('my-block', $js_dir . '/my-block.js', [ 'wp-blocks', 'wp-dom' ] , null, true);
+  wp_enqueue_style('my-block', $css_dir . '/my-block.css', [ 'wp-edit-blocks' ]);
 }
 ```
 
 And then create a JS file with the same name as specified above:
 
 ```js
-wp.blocks.registerBlockType( 'my/tut-01', {
+wp.blocks.registerBlockType('my/tut-01', {
   // the arguments
-} );
+});
 ```
 
 There are 3 important arguments:
